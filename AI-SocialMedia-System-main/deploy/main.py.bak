@@ -1,0 +1,246 @@
+"""
+FastAPI backend for the Business Finder system.
+Provides REST API endpoints for the React frontend.
+"""
+
+from fastapi import FastAPI, HTTPException, Depends
+from fastapi.middleware.cors import CORSMiddleware
+from typing import List, Optional
+from pydantic import BaseModel
+from datetime import datetime
+import os
+from sqlalchemy.orm import Session
+
+from database import get_db, Business, ProcessingLog, init_database
+
+class BusinessResponse(BaseModel):
+    id: int
+    name: str
+    address: Optional[str] = None
+    phone: Optional[str] = None
+    city: Optional[str] = None
+    postcode: Optional[str] = None
+    website_present: Optional[bool] = None
+    website_url: Optional[str] = None
+    social_present: Optional[bool] = None
+    social_links: Optional[dict] = None
+    no_website_no_social: Optional[bool] = None
+    confidence_score: Optional[float] = None
+    sources: Optional[List[str]] = None
+    last_checked_date: Optional[datetime] = None
+    human_review: Optional[str] = None
+    human_reviewer: Optional[str] = None
+    human_review_date: Optional[datetime] = None
+    notes: Optional[str] = None
+    created_at: datetime
+    updated_at: datetime
+
+    model_config = {
+        "from_attributes": True
+    }
+
+class BusinessUpdate(BaseModel):
+    human_review: Optional[str] = None
+    human_reviewer: Optional[str] = None
+    human_review_date: Optional[datetime] = None
+    notes: Optional[str] = None
+
+# Initialize FastAPI app
+app = FastAPI(
+    title="Business Finder API",
+    description="API for finding businesses without website or social media presence",
+    version="1.0.0"
+)
+
+# CORS middleware for React frontend
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:3000", "http://127.0.0.1:3000"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+# Initialize database on startup
+@app.on_event("startup")
+def startup_event():
+    """Initialize database on startup"""
+    init_database()
+    print("Database initialized successfully")
+
+# API Routes
+@app.get("/")
+def root():
+    return {"message": "Business Finder API", "version": "1.0.0"}
+
+@app.get("/api/businesses", response_model=List[BusinessResponse])
+def get_businesses(
+    skip: int = 0,
+    limit: int = 100,
+    status: Optional[str] = None,
+    confidence_min: Optional[float] = None,
+    db: Session = Depends(get_db)
+):
+    """Get list of businesses with optional filtering"""
+    query = db.query(Business)
+    
+    # Apply filters
+    if status:
+        query = query.filter(Business.human_review == status)
+    
+    if confidence_min is not None:
+        query = query.filter(Business.confidence_score >= confidence_min)
+    
+    # Apply pagination
+    businesses = query.offset(skip).limit(limit).all()
+    
+    return businesses
+
+@app.get("/api/businesses/{business_id}", response_model=BusinessResponse)
+def get_business(business_id: int, db: Session = Depends(get_db)):
+    """Get specific business by ID"""
+    business = db.query(Business).filter(Business.id == business_id).first()
+    
+    if not business:
+        raise HTTPException(status_code=404, detail="Business not found")
+    
+    return business
+
+@app.patch("/api/businesses/{business_id}", response_model=BusinessResponse)
+def update_business(
+    business_id: int,
+    business_update: BusinessUpdate,
+    db: Session = Depends(get_db)
+):
+    """Update business information"""
+    business = db.query(Business).filter(Business.id == business_id).first()
+    
+    if not business:
+        raise HTTPException(status_code=404, detail="Business not found")
+    
+    # Update fields
+    update_data = business_update.dict(exclude_unset=True)
+    for field, value in update_data.items():
+        setattr(business, field, value)
+    
+    business.updated_at = datetime.utcnow()
+    
+    try:
+        db.commit()
+        db.refresh(business)
+        return business
+    except Exception as e:
+        db.rollback()
+        raise HTTPException(status_code=500, detail=f"Error updating business: {str(e)}")
+
+@app.get("/api/businesses/{business_id}/logs")
+def get_business_logs(business_id: int, db: Session = Depends(get_db)):
+    """Get processing logs for a specific business"""
+    logs = db.query(ProcessingLog).filter(
+        ProcessingLog.business_id == business_id
+    ).order_by(ProcessingLog.timestamp.desc()).all()
+    
+    return logs
+
+@app.get("/api/stats")
+def get_stats(db: Session = Depends(get_db)):
+    """Get system statistics"""
+    total_businesses = db.query(Business).count()
+    pending_review = db.query(Business).filter(Business.human_review.is_(None)).count()
+    approved = db.query(Business).filter(Business.human_review == 'approved').count()
+    rejected = db.query(Business).filter(Business.human_review == 'rejected').count()
+    high_confidence = db.query(Business).filter(Business.confidence_score >= 0.8).count()
+    no_website_no_social = db.query(Business).filter(Business.no_website_no_social == True).count()
+    
+    return {
+        "total_businesses": total_businesses,
+        "pending_review": pending_review,
+        "approved": approved,
+        "rejected": rejected,
+        "high_confidence": high_confidence,
+        "no_website_no_social": no_website_no_social
+    }
+
+@app.post("/api/businesses/{business_id}/approve")
+def approve_business(business_id: int, db: Session = Depends(get_db)):
+    """Approve a business (mark as having no website/social media)"""
+    business = db.query(Business).filter(Business.id == business_id).first()
+    
+    if not business:
+        raise HTTPException(status_code=404, detail="Business not found")
+    
+    business.human_review = 'approved'
+    business.human_review_date = datetime.utcnow()
+    business.updated_at = datetime.utcnow()
+    
+    try:
+        db.commit()
+        return {"message": "Business approved successfully"}
+    except Exception as e:
+        db.rollback()
+        raise HTTPException(status_code=500, detail=f"Error approving business: {str(e)}")
+
+@app.post("/api/businesses/{business_id}/reject")
+def reject_business(business_id: int, db: Session = Depends(get_db)):
+    """Reject a business (mark as having website/social media)"""
+    business = db.query(Business).filter(Business.id == business_id).first()
+    
+    if not business:
+        raise HTTPException(status_code=404, detail="Business not found")
+    
+    business.human_review = 'rejected'
+    business.human_review_date = datetime.utcnow()
+    business.updated_at = datetime.utcnow()
+    
+    try:
+        db.commit()
+        return {"message": "Business rejected successfully"}
+    except Exception as e:
+        db.rollback()
+        raise HTTPException(status_code=500, detail=f"Error rejecting business: {str(e)}")
+
+@app.get("/api/export/csv")
+def export_csv(
+    status: Optional[str] = None,
+    confidence_min: Optional[float] = None,
+    db: Session = Depends(get_db)
+):
+    """Export businesses to CSV format"""
+    query = db.query(Business)
+    
+    # Apply filters
+    if status:
+        query = query.filter(Business.human_review == status)
+    
+    if confidence_min is not None:
+        query = query.filter(Business.confidence_score >= confidence_min)
+    
+    businesses = query.all()
+    
+    # Convert to CSV format
+    csv_data = []
+    for business in businesses:
+        csv_data.append({
+            'id': business.id,
+            'name': business.name,
+            'address': business.address or '',
+            'phone': business.phone or '',
+            'city': business.city or '',
+            'postcode': business.postcode or '',
+            'website_present': business.website_present or False,
+            'website_url': business.website_url or '',
+            'social_present': business.social_present or False,
+            'social_links': business.social_links or {},
+            'no_website_no_social': business.no_website_no_social or False,
+            'confidence_score': business.confidence_score or 0,
+            'sources': business.sources or [],
+            'last_checked_date': business.last_checked_date or '',
+            'human_review': business.human_review or '',
+            'notes': business.notes or ''
+        })
+    
+    return csv_data
+
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run(app, host="0.0.0.0", port=8000)

@@ -1,0 +1,93 @@
+id,name,address,phone,city,postcode,website_present,website_url,social_present,social_links,no_website_no_social,confidence_score,sources,last_checked_date,human_review,human_reviewer,human_review_date,notes,created_at,updated_at
+1,Rubro,,,,,False,,False,,True,0.5,OpenStreetMap,2025-10-30T21:16:51.908758,,,,,2025-10-26T19:49:14.222953,2025-10-30T21:16:51.910452
+2,ORIGAMI by Arigato,"Lisboa, 1000-082",+351217950673,Lisboa,1000-082,False,,False,,True,0.7,OpenStreetMap,2025-10-30T21:16:51.908774,,,,,2025-10-26T19:49:14.230038,2025-10-30T21:16:51.910456
+3,Entre Copos,"Rua de Entrecampos, Lisbon, 1000-151",,Lisbon,1000-151,False,,False,,True,0.6,OpenStreetMap,2025-10-30T21:16:51.908780,,,,,2025-10-26T19:49:14.230520,2025-10-30T21:16:51.910458
+4,h3 Portugal,,,,,False,,False,,True,0.5,OpenStreetMap,2025-10-30T21:16:51.908786,,,,,2025-10-26T19:49:14.230875,2025-10-30T21:16:51.910460
+5,"Real Nepal, Avenida da República no 66, Lisbon 1050-197",,,,,False,,False,,True,0.5,OpenStreetMap,2025-10-30T21:16:51.908791,,,,,2025-10-26T19:49:14.231202,2025-10-30T21:16:51.910461
+6,10 dieci,,,,,False,,False,,True,0.5,OpenStreetMap,2025-10-30T21:16:51.908796,,,,,2025-10-26T19:49:14.231529,2025-10-30T21:16:51.910463
+7,El Mexicano,,,,,False,,False,,True,0.5,OpenStreetMap,2025-10-30T21:16:51.908801,,,,,2025-10-26T19:49:14.231829,2025-10-30T21:16:51.910465
+8,Portugália,,,,,False,,False,,True,0.5,OpenStreetMap,2025-10-30T21:16:51.908806,,,,,2025-10-26T19:49:14.232115,2025-10-30T21:16:51.910467
+9,100 Montaditos,Campo Pequeno,,,,False,,False,,True,0.6,OpenStreetMap,2025-10-30T21:16:51.908811,,,,,2025-10-26T19:49:14.232398,2025-10-30T21:16:51.910468
+10,Burger King,"Lisboa, 1000-082",,Lisboa,1000-082,False,,False,,True,0.6,OpenStreetMap,2025-10-30T21:16:51.908816,,,,,2025-10-26T19:49:14.232678,2025-10-30T21:16:51.910470
+11,Wok to Walk,,,,,False,,False,,True,0.5,OpenStreetMap,2025-10-30T21:16:51.908820,,,,,2025-10-26T19:49:14.232944,2025-10-30T21:16:51.910472
+12,Leonidas,,,,,False,,False,,True,0.5,OpenStreetMap,2025-10-30T21:16:51.908826,,,,,2025-10-26T19:49:14.233208,2025-10-30T21:16:51.910474
+13,Arena Café,,,,,False,,False,,True,0.5,OpenStreetMap,2025-10-30T21:16:51.908830,,,,,2025-10-26T19:49:14.233483,2025-10-30T21:16:51.910476
+14,Hello Beijing,,,,,False,,False,,True,0.5,OpenStreetMap,2025-10-30T21:16:51.908835,,,,,2025-10-26T19:49:14.233741,2025-10-30T21:16:51.910477
+15,Sauvage,,,,,False,,False,,True,0.5,OpenStreetMap,2025-10-30T21:16:51.908840,,,,,2025-10-26T19:49:14.234013,2025-10-30T21:16:51.910479
+16,Idea Ramen,,,,,False,,False,,True,0.5,OpenStreetMap,2025-10-30T21:16:51.908844,,,,,2025-10-26T19:49:14.234269,2025-10-30T21:16:51.910481
+17,Taco Bell,,,,,False,,False,,True,0.5,OpenStreetMap,2025-10-30T21:16:51.908849,,,,,2025-10-26T19:49:14.234522,2025-10-30T21:16:51.910482
+18,Ba Hot Pot,14B Rua Visconde de Seabra,,,,False,,False,,True,0.6,OpenStreetMap,2025-10-30T21:16:51.908854,,,,,2025-10-26T19:49:14.234776,2025-10-30T21:16:51.910484
+19,Picalho copo,6B Rua Visconde de Seabra,,,,False,,False,,True,0.6,OpenStreetMap,2025-10-30T21:16:51.908859,,,,,2025-10-26T19:49:14.235237,2025-10-30T21:16:51.910486
+20,Pasteleria Londres,,,,,False,,False,,True,0.5,OpenStreetMap,2025-10-30T21:16:51.908864,,,,,2025-10-26T19:49:14.235513,2025-10-30T21:16:51.910488
+21,Baía do Peixe,,,,,False,,False,,True,0.5,OpenStreetMap,2025-10-30T21:16:51.908869,,,,,2025-10-26T19:49:14.235772,2025-10-30T21:16:51.910489
+22,TGB: The Good Burger,,,,,False,,False,,True,0.5,OpenStreetMap,2025-10-30T21:16:51.908874,,,,,2025-10-26T19:49:14.236040,2025-10-30T21:16:51.910491
+23,Granier,16 Avenida Júlio Dinis,,,,False,,False,,True,0.6,OpenStreetMap,2025-10-30T21:16:51.908878,,,,,2025-10-26T19:49:14.236341,2025-10-30T21:16:51.910493
+24,Incheon,16 Avenida Júlio Dinis,,,,False,,False,,True,0.6,OpenStreetMap,2025-10-30T21:16:51.908883,,,,,2025-10-26T19:49:14.236852,2025-10-30T21:16:51.910494
+25,A Laurentina,"71-A Avenida Conde Valbom, Lisboa",+351217960260,Lisboa,,False,,False,,True,0.7,OpenStreetMap,2025-10-30T21:16:51.908888,,,,,2025-10-26T19:49:15.115691,2025-10-30T21:16:51.910496
+26,Snack Bar Gazela,"161 Avenida Elias Garcia, Lisboa",+351217968741,Lisboa,,False,,False,,True,0.7,OpenStreetMap,2025-10-30T21:16:51.908893,,,,,2025-10-26T19:49:15.117672,2025-10-30T21:16:51.910498
+27,I Love Kebab,"84-A Avenida Conde Valbom, Lisboa, 1050-070",+351920076267,Lisboa,1050-070,False,,False,,True,0.7,OpenStreetMap,2025-10-30T21:16:51.908898,,,,,2025-10-26T19:49:15.118280,2025-10-30T21:16:51.910499
+28,Pastelaria Tim-Tim,"113 Avenida 5 de Outubro, Lisboa, 1050",,Lisboa,1050,False,,False,,True,0.6,OpenStreetMap,2025-10-30T21:16:51.908903,,,,,2025-10-26T19:49:15.118686,2025-10-30T21:16:51.910501
+29,Pastelaria Milú,"102 Avenida Elias Garcia, Lisboa, 1050-101",,Lisboa,1050-101,False,,False,,True,0.6,OpenStreetMap,2025-10-30T21:16:51.908909,,,,,2025-10-26T19:49:15.119021,2025-10-30T21:16:51.910503
+30,Woknagasaki,"147 A Avenida Elias Garcia, Lisboa, 1050-099",+351 210 130 896;+351 965 205 052;+351 969 127 250,Lisboa,1050-099,False,,False,,True,0.7,OpenStreetMap,2025-10-30T21:16:51.908914,,,,,2025-10-26T19:49:15.119334,2025-10-30T21:16:51.910504
+31,Jaguar,,,,,False,,False,,True,0.5,OpenStreetMap,2025-10-30T21:16:51.908919,,,,,2025-10-26T19:49:15.119683,2025-10-30T21:16:51.910506
+32,Casa Nepalesa,"172 Avenida Elias Garcia, Lisboa, 1050-103",+351217979797,Lisboa,1050-103,False,,False,,True,0.7,OpenStreetMap,2025-10-30T21:16:51.908923,,,,,2025-10-26T19:49:15.120209,2025-10-30T21:16:51.910508
+33,O Padeiro,"137 Avenida Elias Garcia, Lisboa, 1050-053",+351910167673; +351962318962,Lisboa,1050-053,False,,False,,True,0.7,OpenStreetMap,2025-10-30T21:16:51.908928,,,,,2025-10-26T19:49:15.120598,2025-10-30T21:16:51.910509
+34,Salsa Rosa Bistro,"66 A Avenida Visconde de Valmor, Lisboa, 1050-242",+351218080229,Lisboa,1050-242,False,,False,,True,0.7,OpenStreetMap,2025-10-30T21:16:51.908933,,,,,2025-10-26T19:49:15.120923,2025-10-30T21:16:51.910511
+35,Tendinha Arganilense,"84-B Avenida Conde Valbom, Lisboa, 1050-070",+351217937024,Lisboa,1050-070,False,,False,,True,0.7,OpenStreetMap,2025-10-30T21:16:51.908967,,,,,2025-10-26T19:49:15.121231,2025-10-30T21:16:51.910513
+36,Miyagi Sushi,"111 Avenida Conde de Valbom, Lisboa, 1050-067",+351966614111,Lisboa,1050-067,False,,False,,True,0.7,OpenStreetMap,2025-10-30T21:16:51.908973,,,,,2025-10-26T19:49:15.121531,2025-10-30T21:16:51.910514
+37,Valbom,104-112 Avenida Conde Valbom,+351217970410,,,False,,False,,True,0.7,OpenStreetMap,2025-10-30T21:16:51.908978,,,,,2025-10-26T19:49:15.121821,2025-10-30T21:16:51.910516
+38,A Ladeira,"33-B Avenida Marquês de Tomar, 1050-053",+351217972520,,1050-053,False,,False,,True,0.7,OpenStreetMap,2025-10-30T21:16:51.908983,,,,,2025-10-26T19:49:15.122116,2025-10-30T21:16:51.910518
+39,Sushi Santos,107C Avenida Barbosa du Bocage,,,,False,,False,,True,0.6,OpenStreetMap,2025-10-30T21:16:51.908988,,,,,2025-10-26T19:49:15.122409,2025-10-30T21:16:51.910519
+40,Lateral Bistro,"107A Av. Barbosa Du Bocage, Lisboa, 1050-031",,Lisboa,1050-031,False,,False,,True,0.6,OpenStreetMap,2025-10-30T21:16:51.908993,,,,,2025-10-26T19:49:15.122691,2025-10-30T21:16:51.910521
+41,Zahir Kebab,"25D Avenida Marquês de Tomar, Lisboa, 1050-053",,Lisboa,1050-053,False,,False,,True,0.6,OpenStreetMap,2025-10-30T21:16:51.908998,,,,,2025-10-26T19:49:15.123002,2025-10-30T21:16:51.910523
+42,Joker Lounge Saldanha,"44B Avenida Marquês de Tomar, Lisboa, 1050-053",,Lisboa,1050-053,False,,False,,True,0.6,OpenStreetMap,2025-10-30T21:16:51.909002,,,,,2025-10-26T19:49:15.123285,2025-10-30T21:16:51.910524
+43,Pastelaria/Restaurante Manon,70 Avenida Marquês de Tomar,,,,False,,False,,True,0.6,OpenStreetMap,2025-10-30T21:16:51.909007,,,,,2025-10-26T19:49:15.123574,2025-10-30T21:16:51.910526
+44,Ararate,70;72;74 Avenida Conde Valbom,925 451 509,,,False,,False,,True,0.7,OpenStreetMap,2025-10-30T21:16:51.909012,,,,,2025-10-26T19:49:15.123880,2025-10-30T21:16:51.910528
+45,O Funil,82 Avenida Elias Garcia,+351210968912,,,False,,False,,True,0.7,OpenStreetMap,2025-10-30T21:16:51.909017,,,,,2025-10-26T19:49:15.124158,2025-10-30T21:16:51.910529
+46,LAB a padaria portuguesa,,,,,False,,False,,True,0.5,OpenStreetMap,2025-10-30T21:16:51.909022,,,,,2025-10-26T19:49:15.124435,2025-10-30T21:16:51.910531
+47,Cinnamon Saldanha,93A Avenida Marquês de Tomar,+351933112817,,,False,,False,,True,0.7,OpenStreetMap,2025-10-30T21:16:51.909027,,,,,2025-10-26T19:49:15.124725,2025-10-30T21:16:51.910533
+48,LisboAtrevida,,,,,False,,False,,True,0.5,OpenStreetMap,2025-10-30T21:16:51.909031,,,,,2025-10-26T19:49:15.125003,2025-10-30T21:16:51.910534
+49,Vina chá,,,,,False,,False,,True,0.5,OpenStreetMap,2025-10-30T21:16:51.909036,,,,,2025-10-26T19:49:15.125285,2025-10-30T21:16:51.910536
+50,Yaso Lamen & Gyoza Saldanha,84A Av. Elias Garcia,+351217931343,,,False,,False,,True,0.7,OpenStreetMap,2025-10-30T21:16:51.909041,,,,,2025-10-26T19:49:15.125572,2025-10-30T21:16:51.910538
+51,Domino's,,,,,False,,False,,True,0.5,OpenStreetMap,2025-10-30T21:16:51.909046,,,,,2025-10-26T19:49:15.125842,2025-10-30T21:16:51.910539
+52,Nómada,,,,,False,,False,,True,0.5,OpenStreetMap,2025-10-30T21:16:51.909050,,,,,2025-10-26T19:49:15.126131,2025-10-30T21:16:51.910541
+53,Kendo sushi and meat,,,,,False,,False,,True,0.5,OpenStreetMap,2025-10-30T21:16:51.909055,,,,,2025-10-26T19:49:15.126416,2025-10-30T21:16:51.910543
+54,O visconde,,,,,False,,False,,True,0.5,OpenStreetMap,2025-10-30T21:16:51.909060,,,,,2025-10-26T19:49:15.126736,2025-10-30T21:16:51.910544
+55,SHifu Ramen,,,,,False,,False,,True,0.5,OpenStreetMap,2025-10-30T21:16:51.909065,,,,,2025-10-26T19:49:15.127026,2025-10-30T21:16:51.910546
+56,Lancheria by homerest,,,,,False,,False,,True,0.5,OpenStreetMap,2025-10-30T21:16:51.909070,,,,,2025-10-26T19:49:15.127436,2025-10-30T21:16:51.910548
+57,The Coffee,51 Avenida da República,,,,False,,False,,True,0.6,OpenStreetMap,2025-10-30T21:16:51.909075,,,,,2025-10-26T19:49:15.127856,2025-10-30T21:16:51.910549
+58,Elefant Walk,,,,,False,,False,,True,0.5,OpenStreetMap,2025-10-30T21:16:51.909080,,,,,2025-10-26T19:49:15.128423,2025-10-30T21:16:51.910551
+59,La Tagliatella,,,,,False,,False,,True,0.5,OpenStreetMap,2025-10-30T21:16:51.909084,,,,,2025-10-26T19:49:15.128875,2025-10-30T21:16:51.910552
+60,a'BEIRA-te,,,,,False,,False,,True,0.5,OpenStreetMap,2025-10-30T21:16:51.909089,,,,,2025-10-26T19:49:15.129214,2025-10-30T21:16:51.910554
+61,La Republica 37,,,,,False,,False,,True,0.5,OpenStreetMap,2025-10-30T21:16:51.909094,,,,,2025-10-26T19:49:15.129592,2025-10-30T21:16:51.910556
+62,Com Sabor,,,,,False,,False,,True,0.5,OpenStreetMap,2025-10-30T21:16:51.909099,,,,,2025-10-26T19:49:15.130049,2025-10-30T21:16:51.910557
+63,Cantina,,,,,False,,False,,True,0.5,OpenStreetMap,2025-10-30T21:16:51.909104,,,,,2025-10-26T19:49:15.130351,2025-10-30T21:16:51.910559
+64,La Caffé,,,,,False,,False,,True,0.5,OpenStreetMap,2025-10-30T21:16:51.909108,,,,,2025-10-26T19:49:15.929789,2025-10-30T21:16:51.910561
+65,Taberna Londrina,"35-B Campo Grande, Lisboa, 1700-087",+315 210 912 193,Lisboa,1700-087,False,,False,,True,0.7,OpenStreetMap,2025-10-30T21:16:51.909113,,,,,2025-10-26T19:49:15.931162,2025-10-30T21:16:51.910562
+66,lobby restaurante,,,,,False,,False,,True,0.5,OpenStreetMap,2025-10-30T21:16:51.909118,,,,,2025-10-26T19:49:15.931826,2025-10-30T21:16:51.910564
+67,Cinderella Pastelaria - Restaurante,22 Avenida das Forças Armadas,,,,False,,False,,True,0.6,OpenStreetMap,2025-10-30T21:16:51.909123,,,,,2025-10-26T19:49:15.932428,2025-10-30T21:16:51.910566
+68,A Camponesa,349 Avenida 5 de Outubro,,,,False,,False,,True,0.6,OpenStreetMap,2025-10-30T21:16:51.909128,,,,,2025-10-26T19:49:15.932994,2025-10-30T21:16:51.910567
+69,Javali,,,,,False,,False,,True,0.5,OpenStreetMap,2025-10-30T21:16:51.909132,,,,,2025-10-26T19:49:15.933544,2025-10-30T21:16:51.910569
+70,"Restaurante ""Algo"" Cervejaria",26 Avenida das Forças Armadas,,,,False,,False,,True,0.6,OpenStreetMap,2025-10-30T21:16:51.909137,,,,,2025-10-26T19:49:15.934096,2025-10-30T21:16:51.910571
+71,Sakura (Entrecampos),7 C Rua José Carlos dos Santos,+351 217 931 303;+351 968 385 717,,,False,,False,,True,0.7,OpenStreetMap,2025-10-30T21:16:51.909142,,,,,2025-10-26T19:49:15.934632,2025-10-30T21:16:51.910572
+72,Escolha Natura,"13 Rua António Patrício, Lisboa, 1700-162",,Lisboa,1700-162,False,,False,,True,0.6,OpenStreetMap,2025-10-30T21:16:51.909147,,,,,2025-10-26T19:49:15.935162,2025-10-30T21:16:51.910574
+73,Huang He,,,,,False,,False,,True,0.5,OpenStreetMap,2025-10-30T21:16:51.909152,,,,,2025-10-26T19:49:15.935674,2025-10-30T21:16:51.910575
+74,Watashi,,,,,False,,False,,True,0.5,OpenStreetMap,2025-10-30T21:16:51.909156,,,,,2025-10-26T19:49:15.936180,2025-10-30T21:16:51.910577
+75,Pastelaria Granfina,66E Rua de Entrecampos,,,,False,,False,,True,0.6,OpenStreetMap,2025-10-30T21:16:51.909161,,,,,2025-10-26T19:49:15.937099,2025-10-30T21:16:51.910579
+76,Casinha Amarela,,,,,False,,False,,True,0.5,OpenStreetMap,2025-10-30T21:16:51.909166,,,,,2025-10-26T19:49:15.937835,2025-10-30T21:16:51.910580
+77,Verde Pinho,,,,,False,,False,,True,0.5,OpenStreetMap,2025-10-30T21:16:51.909172,,,,,2025-10-26T19:49:15.938464,2025-10-30T21:16:51.910582
+78,Tasca do Chico,Rua Visconde de Seabra 2,,Lisboa,1700-370,False,,False,,True,0.6,manual_entry,2025-10-30T21:16:51.909177,,,,Traditional Portuguese tasca,2025-10-26T19:49:15.945551,2025-10-30T21:16:51.910584
+79,Café Central do Campo Pequeno,Campo Pequeno,,Lisboa,,False,,False,,True,0.6,manual_entry,2025-10-30T21:16:51.909182,,,,Traditional local café,2025-10-26T19:49:15.946046,2025-10-30T21:16:51.910585
+80,Pastelaria Alentejana,Avenida da República,,Lisboa,,False,,False,,True,0.6,manual_entry,2025-10-30T21:16:51.909186,,,,Traditional bakery,2025-10-26T19:49:15.946455,2025-10-30T21:16:51.910587
+81,Churrasqueira Típica,Rua Actor Isidoro,,Lisboa,,False,,False,,True,0.6,manual_entry,2025-10-30T21:16:51.909191,,,,Local grilled chicken restaurant,2025-10-26T19:49:15.946838,2025-10-30T21:16:51.910589
+82,Casa dos Bifes,Avenida João XXI,,Lisboa,,False,,False,,True,0.6,manual_entry,2025-10-30T21:16:51.909196,,,,Traditional steakhouse,2025-10-26T19:49:15.947208,2025-10-30T21:16:51.910590
+83,The Golden Dragon,123 High Street,+442012345678,London,SW1A 1AA,False,,False,,True,0.7,Sample Data,2025-10-30T21:16:51.909201,,,,,2025-10-30T21:16:38.780088,2025-10-30T21:16:51.910592
+84,Mario's Pizza,45 Queen Street,020 2345 6789,London,EC1A 4HD,False,,False,,True,0.7,Sample Data,2025-10-30T21:16:51.909206,,,,,2025-10-30T21:16:38.785916,2025-10-30T21:16:51.910594
+85,Cafe Central,78 King's Road,+442034567890,London,SW3 4RD,False,,False,,True,0.7,Sample Data,2025-10-30T21:16:51.909211,,,,,2025-10-30T21:16:38.786665,2025-10-30T21:16:51.910595
+86,The Corner Bakery,12 Market Square,+442045678901,London,SE1 9RT,False,,False,,True,0.7,Sample Data,2025-10-30T21:16:51.909215,,,,,2025-10-30T21:16:38.787232,2025-10-30T21:16:51.910597
+87,Tony's Fish & Chips,56 Church Lane,020 5678 9012,London,NW1 6XE,False,,False,,True,0.7,Sample Data,2025-10-30T21:16:51.909220,,,,,2025-10-30T21:16:38.787707,2025-10-30T21:16:51.910599
+88,The Red Lion,89 High Road,020 6789 0123,London,E1 6AN,False,,False,,True,0.7,Sample Data,2025-10-30T21:16:51.909225,,,,,2025-10-30T21:16:38.788118,2025-10-30T21:16:51.910600
+89,Bella's Restaurant,34 Park Avenue,+442078901234,London,W1K 3QR,False,,False,,True,0.7,Sample Data,2025-10-30T21:16:51.909230,,,,,2025-10-30T21:16:38.788806,2025-10-30T21:16:51.910602
+90,The Coffee House,67 Station Road,+442089012345,London,SW1P 3EU,False,,False,,True,0.7,Sample Data,2025-10-30T21:16:51.909235,,,,,2025-10-30T21:16:38.789249,2025-10-30T21:16:51.910603
+91,Pete's Pizzeria,23 Green Street,020 9012 3456,London,N1 7AA,False,,False,,True,0.7,Sample Data,2025-10-30T21:16:51.909239,,,,,2025-10-30T21:16:38.789630,2025-10-30T21:16:51.910605
+92,The Garden Cafe,45 Mill Lane,+442001234567,London,SE5 8RT,False,,False,,True,0.7,Sample Data,2025-10-30T21:16:51.909244,,,,,2025-10-30T21:16:38.790281,2025-10-30T21:16:51.910607

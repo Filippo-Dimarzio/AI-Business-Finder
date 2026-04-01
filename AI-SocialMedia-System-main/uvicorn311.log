@@ -1,0 +1,17 @@
+INFO:     Started server process [26176]
+INFO:     Waiting for application startup.
+2025-12-18 18:23:16.578 | INFO     | database:init_database:122 - Database tables created successfully
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+Database initialized successfully
+INFO:     127.0.0.1:51573 - "POST /api/retrain HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51597 - "GET /api/businesses HTTP/1.1" 200 OK
+2025-12-18 18:27:38.312 | INFO     | classifier:prepare_training_data:131 - Preparing training data from database
+2025-12-18 18:27:38.320 | WARNING  | classifier:prepare_training_data:139 - Not enough labeled data for training. Need at least 10 examples.
+INFO:     127.0.0.1:51615 - "POST /api/retrain HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51775 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51776 - "POST /api/admin/seed_labels?count=10 HTTP/1.1" 404 Not Found
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [26176]

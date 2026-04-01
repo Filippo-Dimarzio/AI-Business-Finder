@@ -1,0 +1,60 @@
+2025-10-30 21:16:38 | INFO | Google Maps client initialized
+2025-10-30 21:16:38 | INFO | Google Maps client initialized
+2025-10-30 21:16:38 | INFO | Starting Business Finder Pipeline
+2025-10-30 21:16:38 | INFO | Step 1: Initializing database
+2025-10-30 21:16:38 | INFO | Database tables created successfully
+2025-10-30 21:16:38 | INFO | Step 2: Data ingestion
+2025-10-30 21:16:38 | INFO | Ingesting from sample CSV
+2025-10-30 21:16:38 | INFO | Starting CSV ingestion from sample_data.csv
+2025-10-30 21:16:38 | INFO | Loaded 10 rows from CSV
+2025-10-30 21:16:38 | INFO | Successfully ingested 10 businesses from CSV
+2025-10-30 21:16:38 | INFO | Ingesting from Google Places API
+2025-10-30 21:16:38 | INFO | Starting Google Places search for 'restaurants' in 'London, UK'
+2025-10-30 21:16:38 | ERROR | Error ingesting Google Places data: REQUEST_DENIED (The provided API key is invalid.)
+2025-10-30 21:16:38 | ERROR | Error in data ingestion: REQUEST_DENIED (The provided API key is invalid.)
+2025-10-30 21:16:38 | ERROR | Pipeline failed: REQUEST_DENIED (The provided API key is invalid.)
+2025-10-30 21:16:38 | ERROR | Pipeline failed: REQUEST_DENIED (The provided API key is invalid.)
+2025-10-30 21:16:51 | INFO | Google Maps client initialized
+2025-10-30 21:16:51 | INFO | Google Maps client initialized
+2025-10-30 21:16:51 | INFO | Starting Business Finder Pipeline
+2025-10-30 21:16:51 | INFO | Step 1: Initializing database
+2025-10-30 21:16:51 | INFO | Database tables created successfully
+2025-10-30 21:16:51 | INFO | Step 2: Skipping data ingestion
+2025-10-30 21:16:51 | INFO | Step 3: Data normalization and deduplication
+2025-10-30 21:16:51 | INFO | Normalizing business data
+2025-10-30 21:16:51 | INFO | Starting normalization of all businesses
+2025-10-30 21:16:51 | INFO | Successfully normalized 92 businesses
+2025-10-30 21:16:51 | INFO | Finding and merging duplicates
+2025-10-30 21:16:51 | INFO | Starting duplicate detection with threshold 0.8
+2025-10-30 21:16:51 | INFO | Checking 92 businesses for duplicates
+2025-10-30 21:16:51 | INFO | Found 0 duplicate groups
+2025-10-30 21:16:51 | INFO | No duplicates found
+2025-10-30 21:16:51 | INFO | Step 4: Website detection
+2025-10-30 21:16:51 | INFO | Website check completed for 0 businesses
+2025-10-30 21:16:51 | INFO | Step 5: Social media detection
+2025-10-30 21:16:51 | INFO | Starting social media check for all businesses
+2025-10-30 21:16:51 | INFO | Successfully checked social media for 0 businesses
+2025-10-30 21:16:51 | INFO | Social media check completed for 0 businesses
+2025-10-30 21:16:51 | INFO | Step 6: ML classification
+2025-10-30 21:16:51 | INFO | Preparing training data
+2025-10-30 21:16:51 | INFO | Preparing training data from database
+2025-10-30 21:16:51 | WARNING | Not enough labeled data for training. Need at least 10 examples.
+2025-10-30 21:16:51 | WARNING | No training data available. Skipping model training.
+2025-10-30 21:16:51 | INFO | Using rule-based classification
+2025-10-30 21:16:51 | INFO | Rule-based classification completed for 92 businesses
+2025-10-30 21:16:51 | INFO | Step 7: Exporting results
+2025-10-30 21:16:51 | INFO | Exporting all businesses
+2025-10-30 21:16:51 | INFO | Starting CSV export to all_businesses.csv
+2025-10-30 21:16:51 | INFO | Successfully exported 92 businesses to all_businesses.csv
+2025-10-30 21:16:51 | INFO | Starting JSON export to all_businesses.json
+2025-10-30 21:16:51 | INFO | Successfully exported 92 businesses to all_businesses.json
+2025-10-30 21:16:51 | INFO | Exporting approved businesses
+2025-10-30 21:16:51 | INFO | Starting CSV export to approved_businesses.csv
+2025-10-30 21:16:51 | INFO | Successfully exported 0 businesses to approved_businesses.csv
+2025-10-30 21:16:51 | INFO | Exporting high confidence predictions
+2025-10-30 21:16:51 | INFO | Starting CSV export to high_confidence_businesses.csv
+2025-10-30 21:16:51 | INFO | Successfully exported 28 businesses to high_confidence_businesses.csv
+2025-10-30 21:16:51 | INFO | Generating summary report
+2025-10-30 21:16:51 | INFO | Generating summary report to summary_report.json
+2025-10-30 21:16:51 | INFO | Successfully generated summary report at summary_report.json
+2025-10-30 21:16:51 | INFO | Pipeline completed successfully in 0:00:00.274993

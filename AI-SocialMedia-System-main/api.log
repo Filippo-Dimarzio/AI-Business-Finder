@@ -1,0 +1,1402 @@
+2025-10-25 19:51:06.948 | ERROR    | database:get_db:168 - Database connection error: Textual SQL expression 'SELECT 1' should be explicitly declared as text('SELECT 1')
+2025-10-25 19:51:06.990 | ERROR    | main:sqlalchemy_exception_handler:73 - Database error: Textual SQL expression 'SELECT 1' should be explicitly declared as text('SELECT 1')
+Traceback (most recent call last):
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/fastapi/routing.py", line 110, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/fastapi/routing.py", line 380, in app
+    solved_result = await solve_dependencies(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+    )
+    ^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/fastapi/dependencies/utils.py", line 669, in solve_dependencies
+    solved = await solve_generator(
+             ^^^^^^^^^^^^^^^^^^^^^^
+        call=call, stack=async_exit_stack, sub_values=solved_result.values
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/fastapi/dependencies/utils.py", line 595, in solve_generator
+    return await stack.enter_async_context(cm)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.13/3.13.2/Frameworks/Python.framework/Versions/3.13/lib/python3.13/contextlib.py", line 668, in enter_async_context
+    result = await _enter(cm)
+             ^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.13/3.13.2/Frameworks/Python.framework/Versions/3.13/lib/python3.13/contextlib.py", line 214, in __aenter__
+    return await anext(self.gen)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/fastapi/concurrency.py", line 35, in contextmanager_in_threadpool
+    raise e
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/fastapi/concurrency.py", line 27, in contextmanager_in_threadpool
+    yield await run_in_threadpool(cm.__enter__)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/starlette/concurrency.py", line 38, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/anyio/to_thread.py", line 56, in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        func, args, abandon_on_cancel=abandon_on_cancel, limiter=limiter
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/anyio/_backends/_asyncio.py", line 2485, in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/anyio/_backends/_asyncio.py", line 976, in run
+    result = context.run(func, *args)
+  File "/opt/homebrew/Cellar/python@3.13/3.13.2/Frameworks/Python.framework/Versions/3.13/lib/python3.13/contextlib.py", line 141, in __enter__
+    return next(self.gen)
+  File "/Users/filippodimarzio/AISystemFDM/database.py", line 165, in get_db
+    db.execute("SELECT 1")
+    ~~~~~~~~~~^^^^^^^^^^^^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/sqlalchemy/orm/session.py", line 2351, in execute
+    return self._execute_internal(
+           ~~~~~~~~~~~~~~~~~~~~~~^
+        statement,
+        ^^^^^^^^^^
+    ...<4 lines>...
+        _add_event=_add_event,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/sqlalchemy/orm/session.py", line 2147, in _execute_internal
+    statement = coercions.expect(roles.StatementRole, statement)
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/sqlalchemy/sql/coercions.py", line 395, in expect
+    resolved = impl._literal_coercion(
+        element, argname=argname, **kw
+    )
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/sqlalchemy/sql/coercions.py", line 621, in _literal_coercion
+    return self._text_coercion(element, argname, **kw)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/sqlalchemy/sql/coercions.py", line 614, in _text_coercion
+    return _no_text_coercion(element, argname)
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/sqlalchemy/sql/coercions.py", line 584, in _no_text_coercion
+    raise exc_cls(
+    ...<7 lines>...
+    ) from err
+sqlalchemy.exc.ArgumentError: Textual SQL expression 'SELECT 1' should be explicitly declared as text('SELECT 1')
+
+2025-10-25 19:51:33.951 | ERROR    | database:get_db:168 - Database connection error: Textual SQL expression 'SELECT 1' should be explicitly declared as text('SELECT 1')
+2025-10-25 19:51:33.961 | ERROR    | main:sqlalchemy_exception_handler:73 - Database error: Textual SQL expression 'SELECT 1' should be explicitly declared as text('SELECT 1')
+Traceback (most recent call last):
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/fastapi/routing.py", line 110, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/fastapi/routing.py", line 380, in app
+    solved_result = await solve_dependencies(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+    )
+    ^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/fastapi/dependencies/utils.py", line 669, in solve_dependencies
+    solved = await solve_generator(
+             ^^^^^^^^^^^^^^^^^^^^^^
+        call=call, stack=async_exit_stack, sub_values=solved_result.values
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/fastapi/dependencies/utils.py", line 595, in solve_generator
+    return await stack.enter_async_context(cm)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.13/3.13.2/Frameworks/Python.framework/Versions/3.13/lib/python3.13/contextlib.py", line 668, in enter_async_context
+    result = await _enter(cm)
+             ^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.13/3.13.2/Frameworks/Python.framework/Versions/3.13/lib/python3.13/contextlib.py", line 214, in __aenter__
+    return await anext(self.gen)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/fastapi/concurrency.py", line 35, in contextmanager_in_threadpool
+    raise e
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/fastapi/concurrency.py", line 27, in contextmanager_in_threadpool
+    yield await run_in_threadpool(cm.__enter__)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/starlette/concurrency.py", line 38, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/anyio/to_thread.py", line 56, in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        func, args, abandon_on_cancel=abandon_on_cancel, limiter=limiter
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/anyio/_backends/_asyncio.py", line 2485, in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/anyio/_backends/_asyncio.py", line 976, in run
+    result = context.run(func, *args)
+  File "/opt/homebrew/Cellar/python@3.13/3.13.2/Frameworks/Python.framework/Versions/3.13/lib/python3.13/contextlib.py", line 141, in __enter__
+    return next(self.gen)
+  File "/Users/filippodimarzio/AISystemFDM/database.py", line 165, in get_db
+    db.execute("SELECT 1")
+    ~~~~~~~~~~^^^^^^^^^^^^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/sqlalchemy/orm/session.py", line 2351, in execute
+    return self._execute_internal(
+           ~~~~~~~~~~~~~~~~~~~~~~^
+        statement,
+        ^^^^^^^^^^
+    ...<4 lines>...
+        _add_event=_add_event,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/sqlalchemy/orm/session.py", line 2147, in _execute_internal
+    statement = coercions.expect(roles.StatementRole, statement)
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/sqlalchemy/sql/coercions.py", line 395, in expect
+    resolved = impl._literal_coercion(
+        element, argname=argname, **kw
+    )
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/sqlalchemy/sql/coercions.py", line 621, in _literal_coercion
+    return self._text_coercion(element, argname, **kw)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/sqlalchemy/sql/coercions.py", line 614, in _text_coercion
+    return _no_text_coercion(element, argname)
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/sqlalchemy/sql/coercions.py", line 584, in _no_text_coercion
+    raise exc_cls(
+    ...<7 lines>...
+    ) from err
+sqlalchemy.exc.ArgumentError: Textual SQL expression 'SELECT 1' should be explicitly declared as text('SELECT 1')
+
+2025-10-25 19:51:34.572 | ERROR    | database:get_db:168 - Database connection error: Textual SQL expression 'SELECT 1' should be explicitly declared as text('SELECT 1')
+2025-10-25 19:51:34.575 | ERROR    | main:sqlalchemy_exception_handler:73 - Database error: Textual SQL expression 'SELECT 1' should be explicitly declared as text('SELECT 1')
+Traceback (most recent call last):
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/fastapi/routing.py", line 110, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/fastapi/routing.py", line 380, in app
+    solved_result = await solve_dependencies(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+    )
+    ^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/fastapi/dependencies/utils.py", line 669, in solve_dependencies
+    solved = await solve_generator(
+             ^^^^^^^^^^^^^^^^^^^^^^
+        call=call, stack=async_exit_stack, sub_values=solved_result.values
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/fastapi/dependencies/utils.py", line 595, in solve_generator
+    return await stack.enter_async_context(cm)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.13/3.13.2/Frameworks/Python.framework/Versions/3.13/lib/python3.13/contextlib.py", line 668, in enter_async_context
+    result = await _enter(cm)
+             ^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.13/3.13.2/Frameworks/Python.framework/Versions/3.13/lib/python3.13/contextlib.py", line 214, in __aenter__
+    return await anext(self.gen)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/fastapi/concurrency.py", line 35, in contextmanager_in_threadpool
+    raise e
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/fastapi/concurrency.py", line 27, in contextmanager_in_threadpool
+    yield await run_in_threadpool(cm.__enter__)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/starlette/concurrency.py", line 38, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/anyio/to_thread.py", line 56, in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        func, args, abandon_on_cancel=abandon_on_cancel, limiter=limiter
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/anyio/_backends/_asyncio.py", line 2485, in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/anyio/_backends/_asyncio.py", line 976, in run
+    result = context.run(func, *args)
+  File "/opt/homebrew/Cellar/python@3.13/3.13.2/Frameworks/Python.framework/Versions/3.13/lib/python3.13/contextlib.py", line 141, in __enter__
+    return next(self.gen)
+  File "/Users/filippodimarzio/AISystemFDM/database.py", line 165, in get_db
+    db.execute("SELECT 1")
+    ~~~~~~~~~~^^^^^^^^^^^^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/sqlalchemy/orm/session.py", line 2351, in execute
+    return self._execute_internal(
+           ~~~~~~~~~~~~~~~~~~~~~~^
+        statement,
+        ^^^^^^^^^^
+    ...<4 lines>...
+        _add_event=_add_event,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/sqlalchemy/orm/session.py", line 2147, in _execute_internal
+    statement = coercions.expect(roles.StatementRole, statement)
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/sqlalchemy/sql/coercions.py", line 395, in expect
+    resolved = impl._literal_coercion(
+        element, argname=argname, **kw
+    )
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/sqlalchemy/sql/coercions.py", line 621, in _literal_coercion
+    return self._text_coercion(element, argname, **kw)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/sqlalchemy/sql/coercions.py", line 614, in _text_coercion
+    return _no_text_coercion(element, argname)
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/sqlalchemy/sql/coercions.py", line 584, in _no_text_coercion
+    raise exc_cls(
+    ...<7 lines>...
+    ) from err
+sqlalchemy.exc.ArgumentError: Textual SQL expression 'SELECT 1' should be explicitly declared as text('SELECT 1')
+
+2025-10-25 19:52:27.328 | ERROR    | database:init_database:110 - Error creating database tables: Invalid value 'IMMEDIATE' for isolation_level. Valid isolation levels for 'sqlite' are READ UNCOMMITTED, SERIALIZABLE, AUTOCOMMIT
+2025-10-25 19:52:39.082 | ERROR    | database:init_database:110 - Error creating database tables: Invalid value 'IMMEDIATE' for isolation_level. Valid isolation levels for 'sqlite' are READ UNCOMMITTED, SERIALIZABLE, AUTOCOMMIT
+2025-10-25 19:54:08.304 | INFO     | database:init_database:108 - Database tables created successfully
+2025-10-25 19:54:12.731 | INFO     | database:init_database:108 - Database tables created successfully
+2025-10-25 19:58:32.682 | INFO     | database:init_database:113 - Database tables created successfully
+2025-10-25 19:59:44.467 | INFO     | database:init_database:113 - Database tables created successfully
+2025-10-25 20:00:33.713 | INFO     | database:init_database:113 - Database tables created successfully
+2025-10-25 20:02:52.588 | INFO     | database:init_database:113 - Database tables created successfully
+2025-10-25 20:03:19.663 | ERROR    | database:get_db:180 - Database connection error: Textual SQL expression 'SELECT 1' should be explicitly declared as text('SELECT 1')
+2025-10-25 20:03:19.678 | ERROR    | main:sqlalchemy_exception_handler:73 - Database error: Textual SQL expression 'SELECT 1' should be explicitly declared as text('SELECT 1')
+Traceback (most recent call last):
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/fastapi/routing.py", line 110, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/fastapi/routing.py", line 380, in app
+    solved_result = await solve_dependencies(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+    )
+    ^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/fastapi/dependencies/utils.py", line 669, in solve_dependencies
+    solved = await solve_generator(
+             ^^^^^^^^^^^^^^^^^^^^^^
+        call=call, stack=async_exit_stack, sub_values=solved_result.values
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/fastapi/dependencies/utils.py", line 595, in solve_generator
+    return await stack.enter_async_context(cm)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.13/3.13.2/Frameworks/Python.framework/Versions/3.13/lib/python3.13/contextlib.py", line 668, in enter_async_context
+    result = await _enter(cm)
+             ^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.13/3.13.2/Frameworks/Python.framework/Versions/3.13/lib/python3.13/contextlib.py", line 214, in __aenter__
+    return await anext(self.gen)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/fastapi/concurrency.py", line 35, in contextmanager_in_threadpool
+    raise e
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/fastapi/concurrency.py", line 27, in contextmanager_in_threadpool
+    yield await run_in_threadpool(cm.__enter__)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/starlette/concurrency.py", line 38, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/anyio/to_thread.py", line 56, in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        func, args, abandon_on_cancel=abandon_on_cancel, limiter=limiter
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/anyio/_backends/_asyncio.py", line 2485, in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/anyio/_backends/_asyncio.py", line 976, in run
+    result = context.run(func, *args)
+  File "/opt/homebrew/Cellar/python@3.13/3.13.2/Frameworks/Python.framework/Versions/3.13/lib/python3.13/contextlib.py", line 141, in __enter__
+    return next(self.gen)
+  File "/Users/filippodimarzio/AISystemFDM/database.py", line 177, in get_db
+    db.execute("SELECT 1")
+    ~~~~~~~~~~^^^^^^^^^^^^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/sqlalchemy/orm/session.py", line 2351, in execute
+    return self._execute_internal(
+           ~~~~~~~~~~~~~~~~~~~~~~^
+        statement,
+        ^^^^^^^^^^
+    ...<4 lines>...
+        _add_event=_add_event,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/sqlalchemy/orm/session.py", line 2147, in _execute_internal
+    statement = coercions.expect(roles.StatementRole, statement)
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/sqlalchemy/sql/coercions.py", line 395, in expect
+    resolved = impl._literal_coercion(
+        element, argname=argname, **kw
+    )
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/sqlalchemy/sql/coercions.py", line 621, in _literal_coercion
+    return self._text_coercion(element, argname, **kw)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/sqlalchemy/sql/coercions.py", line 614, in _text_coercion
+    return _no_text_coercion(element, argname)
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/sqlalchemy/sql/coercions.py", line 584, in _no_text_coercion
+    raise exc_cls(
+    ...<7 lines>...
+    ) from err
+sqlalchemy.exc.ArgumentError: Textual SQL expression 'SELECT 1' should be explicitly declared as text('SELECT 1')
+
+2025-10-25 20:03:54.559 | ERROR    | database:get_db:180 - Database connection error: Textual SQL expression 'SELECT 1' should be explicitly declared as text('SELECT 1')
+2025-10-25 20:03:54.563 | ERROR    | main:sqlalchemy_exception_handler:73 - Database error: Textual SQL expression 'SELECT 1' should be explicitly declared as text('SELECT 1')
+Traceback (most recent call last):
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/fastapi/routing.py", line 110, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/fastapi/routing.py", line 380, in app
+    solved_result = await solve_dependencies(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+    )
+    ^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/fastapi/dependencies/utils.py", line 669, in solve_dependencies
+    solved = await solve_generator(
+             ^^^^^^^^^^^^^^^^^^^^^^
+        call=call, stack=async_exit_stack, sub_values=solved_result.values
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/fastapi/dependencies/utils.py", line 595, in solve_generator
+    return await stack.enter_async_context(cm)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.13/3.13.2/Frameworks/Python.framework/Versions/3.13/lib/python3.13/contextlib.py", line 668, in enter_async_context
+    result = await _enter(cm)
+             ^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.13/3.13.2/Frameworks/Python.framework/Versions/3.13/lib/python3.13/contextlib.py", line 214, in __aenter__
+    return await anext(self.gen)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/fastapi/concurrency.py", line 35, in contextmanager_in_threadpool
+    raise e
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/fastapi/concurrency.py", line 27, in contextmanager_in_threadpool
+    yield await run_in_threadpool(cm.__enter__)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/starlette/concurrency.py", line 38, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/anyio/to_thread.py", line 56, in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        func, args, abandon_on_cancel=abandon_on_cancel, limiter=limiter
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/anyio/_backends/_asyncio.py", line 2485, in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/anyio/_backends/_asyncio.py", line 976, in run
+    result = context.run(func, *args)
+  File "/opt/homebrew/Cellar/python@3.13/3.13.2/Frameworks/Python.framework/Versions/3.13/lib/python3.13/contextlib.py", line 141, in __enter__
+    return next(self.gen)
+  File "/Users/filippodimarzio/AISystemFDM/database.py", line 177, in get_db
+    db.execute("SELECT 1")
+    ~~~~~~~~~~^^^^^^^^^^^^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/sqlalchemy/orm/session.py", line 2351, in execute
+    return self._execute_internal(
+           ~~~~~~~~~~~~~~~~~~~~~~^
+        statement,
+        ^^^^^^^^^^
+    ...<4 lines>...
+        _add_event=_add_event,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/sqlalchemy/orm/session.py", line 2147, in _execute_internal
+    statement = coercions.expect(roles.StatementRole, statement)
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/sqlalchemy/sql/coercions.py", line 395, in expect
+    resolved = impl._literal_coercion(
+        element, argname=argname, **kw
+    )
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/sqlalchemy/sql/coercions.py", line 621, in _literal_coercion
+    return self._text_coercion(element, argname, **kw)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/sqlalchemy/sql/coercions.py", line 614, in _text_coercion
+    return _no_text_coercion(element, argname)
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/sqlalchemy/sql/coercions.py", line 584, in _no_text_coercion
+    raise exc_cls(
+    ...<7 lines>...
+    ) from err
+sqlalchemy.exc.ArgumentError: Textual SQL expression 'SELECT 1' should be explicitly declared as text('SELECT 1')
+
+2025-10-25 20:03:54.997 | ERROR    | database:get_db:180 - Database connection error: Textual SQL expression 'SELECT 1' should be explicitly declared as text('SELECT 1')
+2025-10-25 20:03:55.000 | ERROR    | main:sqlalchemy_exception_handler:73 - Database error: Textual SQL expression 'SELECT 1' should be explicitly declared as text('SELECT 1')
+Traceback (most recent call last):
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/fastapi/routing.py", line 110, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/fastapi/routing.py", line 380, in app
+    solved_result = await solve_dependencies(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+    )
+    ^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/fastapi/dependencies/utils.py", line 669, in solve_dependencies
+    solved = await solve_generator(
+             ^^^^^^^^^^^^^^^^^^^^^^
+        call=call, stack=async_exit_stack, sub_values=solved_result.values
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/fastapi/dependencies/utils.py", line 595, in solve_generator
+    return await stack.enter_async_context(cm)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.13/3.13.2/Frameworks/Python.framework/Versions/3.13/lib/python3.13/contextlib.py", line 668, in enter_async_context
+    result = await _enter(cm)
+             ^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.13/3.13.2/Frameworks/Python.framework/Versions/3.13/lib/python3.13/contextlib.py", line 214, in __aenter__
+    return await anext(self.gen)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/fastapi/concurrency.py", line 35, in contextmanager_in_threadpool
+    raise e
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/fastapi/concurrency.py", line 27, in contextmanager_in_threadpool
+    yield await run_in_threadpool(cm.__enter__)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/starlette/concurrency.py", line 38, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/anyio/to_thread.py", line 56, in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        func, args, abandon_on_cancel=abandon_on_cancel, limiter=limiter
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/anyio/_backends/_asyncio.py", line 2485, in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/anyio/_backends/_asyncio.py", line 976, in run
+    result = context.run(func, *args)
+  File "/opt/homebrew/Cellar/python@3.13/3.13.2/Frameworks/Python.framework/Versions/3.13/lib/python3.13/contextlib.py", line 141, in __enter__
+    return next(self.gen)
+  File "/Users/filippodimarzio/AISystemFDM/database.py", line 177, in get_db
+    db.execute("SELECT 1")
+    ~~~~~~~~~~^^^^^^^^^^^^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/sqlalchemy/orm/session.py", line 2351, in execute
+    return self._execute_internal(
+           ~~~~~~~~~~~~~~~~~~~~~~^
+        statement,
+        ^^^^^^^^^^
+    ...<4 lines>...
+        _add_event=_add_event,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/sqlalchemy/orm/session.py", line 2147, in _execute_internal
+    statement = coercions.expect(roles.StatementRole, statement)
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/sqlalchemy/sql/coercions.py", line 395, in expect
+    resolved = impl._literal_coercion(
+        element, argname=argname, **kw
+    )
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/sqlalchemy/sql/coercions.py", line 621, in _literal_coercion
+    return self._text_coercion(element, argname, **kw)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/sqlalchemy/sql/coercions.py", line 614, in _text_coercion
+    return _no_text_coercion(element, argname)
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/sqlalchemy/sql/coercions.py", line 584, in _no_text_coercion
+    raise exc_cls(
+    ...<7 lines>...
+    ) from err
+sqlalchemy.exc.ArgumentError: Textual SQL expression 'SELECT 1' should be explicitly declared as text('SELECT 1')
+
+2025-10-25 20:03:55.098 | ERROR    | database:get_db:180 - Database connection error: Textual SQL expression 'SELECT 1' should be explicitly declared as text('SELECT 1')
+2025-10-25 20:03:55.101 | ERROR    | main:sqlalchemy_exception_handler:73 - Database error: Textual SQL expression 'SELECT 1' should be explicitly declared as text('SELECT 1')
+Traceback (most recent call last):
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/fastapi/routing.py", line 110, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/fastapi/routing.py", line 380, in app
+    solved_result = await solve_dependencies(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+    )
+    ^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/fastapi/dependencies/utils.py", line 669, in solve_dependencies
+    solved = await solve_generator(
+             ^^^^^^^^^^^^^^^^^^^^^^
+        call=call, stack=async_exit_stack, sub_values=solved_result.values
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/fastapi/dependencies/utils.py", line 595, in solve_generator
+    return await stack.enter_async_context(cm)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.13/3.13.2/Frameworks/Python.framework/Versions/3.13/lib/python3.13/contextlib.py", line 668, in enter_async_context
+    result = await _enter(cm)
+             ^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.13/3.13.2/Frameworks/Python.framework/Versions/3.13/lib/python3.13/contextlib.py", line 214, in __aenter__
+    return await anext(self.gen)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/fastapi/concurrency.py", line 35, in contextmanager_in_threadpool
+    raise e
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/fastapi/concurrency.py", line 27, in contextmanager_in_threadpool
+    yield await run_in_threadpool(cm.__enter__)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/starlette/concurrency.py", line 38, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/anyio/to_thread.py", line 56, in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        func, args, abandon_on_cancel=abandon_on_cancel, limiter=limiter
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/anyio/_backends/_asyncio.py", line 2485, in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/anyio/_backends/_asyncio.py", line 976, in run
+    result = context.run(func, *args)
+  File "/opt/homebrew/Cellar/python@3.13/3.13.2/Frameworks/Python.framework/Versions/3.13/lib/python3.13/contextlib.py", line 141, in __enter__
+    return next(self.gen)
+  File "/Users/filippodimarzio/AISystemFDM/database.py", line 177, in get_db
+    db.execute("SELECT 1")
+    ~~~~~~~~~~^^^^^^^^^^^^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/sqlalchemy/orm/session.py", line 2351, in execute
+    return self._execute_internal(
+           ~~~~~~~~~~~~~~~~~~~~~~^
+        statement,
+        ^^^^^^^^^^
+    ...<4 lines>...
+        _add_event=_add_event,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/sqlalchemy/orm/session.py", line 2147, in _execute_internal
+    statement = coercions.expect(roles.StatementRole, statement)
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/sqlalchemy/sql/coercions.py", line 395, in expect
+    resolved = impl._literal_coercion(
+        element, argname=argname, **kw
+    )
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/sqlalchemy/sql/coercions.py", line 621, in _literal_coercion
+    return self._text_coercion(element, argname, **kw)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/sqlalchemy/sql/coercions.py", line 614, in _text_coercion
+    return _no_text_coercion(element, argname)
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/sqlalchemy/sql/coercions.py", line 584, in _no_text_coercion
+    raise exc_cls(
+    ...<7 lines>...
+    ) from err
+sqlalchemy.exc.ArgumentError: Textual SQL expression 'SELECT 1' should be explicitly declared as text('SELECT 1')
+
+2025-10-25 20:03:55.232 | ERROR    | database:get_db:180 - Database connection error: Textual SQL expression 'SELECT 1' should be explicitly declared as text('SELECT 1')
+2025-10-25 20:03:55.236 | ERROR    | main:sqlalchemy_exception_handler:73 - Database error: Textual SQL expression 'SELECT 1' should be explicitly declared as text('SELECT 1')
+Traceback (most recent call last):
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/fastapi/routing.py", line 110, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/fastapi/routing.py", line 380, in app
+    solved_result = await solve_dependencies(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+    )
+    ^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/fastapi/dependencies/utils.py", line 669, in solve_dependencies
+    solved = await solve_generator(
+             ^^^^^^^^^^^^^^^^^^^^^^
+        call=call, stack=async_exit_stack, sub_values=solved_result.values
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/fastapi/dependencies/utils.py", line 595, in solve_generator
+    return await stack.enter_async_context(cm)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.13/3.13.2/Frameworks/Python.framework/Versions/3.13/lib/python3.13/contextlib.py", line 668, in enter_async_context
+    result = await _enter(cm)
+             ^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.13/3.13.2/Frameworks/Python.framework/Versions/3.13/lib/python3.13/contextlib.py", line 214, in __aenter__
+    return await anext(self.gen)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/fastapi/concurrency.py", line 35, in contextmanager_in_threadpool
+    raise e
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/fastapi/concurrency.py", line 27, in contextmanager_in_threadpool
+    yield await run_in_threadpool(cm.__enter__)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/starlette/concurrency.py", line 38, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/anyio/to_thread.py", line 56, in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        func, args, abandon_on_cancel=abandon_on_cancel, limiter=limiter
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/anyio/_backends/_asyncio.py", line 2485, in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/anyio/_backends/_asyncio.py", line 976, in run
+    result = context.run(func, *args)
+  File "/opt/homebrew/Cellar/python@3.13/3.13.2/Frameworks/Python.framework/Versions/3.13/lib/python3.13/contextlib.py", line 141, in __enter__
+    return next(self.gen)
+  File "/Users/filippodimarzio/AISystemFDM/database.py", line 177, in get_db
+    db.execute("SELECT 1")
+    ~~~~~~~~~~^^^^^^^^^^^^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/sqlalchemy/orm/session.py", line 2351, in execute
+    return self._execute_internal(
+           ~~~~~~~~~~~~~~~~~~~~~~^
+        statement,
+        ^^^^^^^^^^
+    ...<4 lines>...
+        _add_event=_add_event,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/sqlalchemy/orm/session.py", line 2147, in _execute_internal
+    statement = coercions.expect(roles.StatementRole, statement)
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/sqlalchemy/sql/coercions.py", line 395, in expect
+    resolved = impl._literal_coercion(
+        element, argname=argname, **kw
+    )
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/sqlalchemy/sql/coercions.py", line 621, in _literal_coercion
+    return self._text_coercion(element, argname, **kw)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/sqlalchemy/sql/coercions.py", line 614, in _text_coercion
+    return _no_text_coercion(element, argname)
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/sqlalchemy/sql/coercions.py", line 584, in _no_text_coercion
+    raise exc_cls(
+    ...<7 lines>...
+    ) from err
+sqlalchemy.exc.ArgumentError: Textual SQL expression 'SELECT 1' should be explicitly declared as text('SELECT 1')
+
+2025-10-25 20:03:55.350 | ERROR    | database:get_db:180 - Database connection error: Textual SQL expression 'SELECT 1' should be explicitly declared as text('SELECT 1')
+2025-10-25 20:03:55.352 | ERROR    | main:sqlalchemy_exception_handler:73 - Database error: Textual SQL expression 'SELECT 1' should be explicitly declared as text('SELECT 1')
+Traceback (most recent call last):
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/fastapi/routing.py", line 110, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/fastapi/routing.py", line 380, in app
+    solved_result = await solve_dependencies(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+    )
+    ^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/fastapi/dependencies/utils.py", line 669, in solve_dependencies
+    solved = await solve_generator(
+             ^^^^^^^^^^^^^^^^^^^^^^
+        call=call, stack=async_exit_stack, sub_values=solved_result.values
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/fastapi/dependencies/utils.py", line 595, in solve_generator
+    return await stack.enter_async_context(cm)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.13/3.13.2/Frameworks/Python.framework/Versions/3.13/lib/python3.13/contextlib.py", line 668, in enter_async_context
+    result = await _enter(cm)
+             ^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.13/3.13.2/Frameworks/Python.framework/Versions/3.13/lib/python3.13/contextlib.py", line 214, in __aenter__
+    return await anext(self.gen)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/fastapi/concurrency.py", line 35, in contextmanager_in_threadpool
+    raise e
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/fastapi/concurrency.py", line 27, in contextmanager_in_threadpool
+    yield await run_in_threadpool(cm.__enter__)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/starlette/concurrency.py", line 38, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/anyio/to_thread.py", line 56, in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        func, args, abandon_on_cancel=abandon_on_cancel, limiter=limiter
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/anyio/_backends/_asyncio.py", line 2485, in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/anyio/_backends/_asyncio.py", line 976, in run
+    result = context.run(func, *args)
+  File "/opt/homebrew/Cellar/python@3.13/3.13.2/Frameworks/Python.framework/Versions/3.13/lib/python3.13/contextlib.py", line 141, in __enter__
+    return next(self.gen)
+  File "/Users/filippodimarzio/AISystemFDM/database.py", line 177, in get_db
+    db.execute("SELECT 1")
+    ~~~~~~~~~~^^^^^^^^^^^^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/sqlalchemy/orm/session.py", line 2351, in execute
+    return self._execute_internal(
+           ~~~~~~~~~~~~~~~~~~~~~~^
+        statement,
+        ^^^^^^^^^^
+    ...<4 lines>...
+        _add_event=_add_event,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/sqlalchemy/orm/session.py", line 2147, in _execute_internal
+    statement = coercions.expect(roles.StatementRole, statement)
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/sqlalchemy/sql/coercions.py", line 395, in expect
+    resolved = impl._literal_coercion(
+        element, argname=argname, **kw
+    )
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/sqlalchemy/sql/coercions.py", line 621, in _literal_coercion
+    return self._text_coercion(element, argname, **kw)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/sqlalchemy/sql/coercions.py", line 614, in _text_coercion
+    return _no_text_coercion(element, argname)
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/sqlalchemy/sql/coercions.py", line 584, in _no_text_coercion
+    raise exc_cls(
+    ...<7 lines>...
+    ) from err
+sqlalchemy.exc.ArgumentError: Textual SQL expression 'SELECT 1' should be explicitly declared as text('SELECT 1')
+
+2025-10-25 20:03:55.497 | ERROR    | database:get_db:180 - Database connection error: Textual SQL expression 'SELECT 1' should be explicitly declared as text('SELECT 1')
+2025-10-25 20:03:55.502 | ERROR    | main:sqlalchemy_exception_handler:73 - Database error: Textual SQL expression 'SELECT 1' should be explicitly declared as text('SELECT 1')
+Traceback (most recent call last):
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/fastapi/routing.py", line 110, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/fastapi/routing.py", line 380, in app
+    solved_result = await solve_dependencies(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+    )
+    ^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/fastapi/dependencies/utils.py", line 669, in solve_dependencies
+    solved = await solve_generator(
+             ^^^^^^^^^^^^^^^^^^^^^^
+        call=call, stack=async_exit_stack, sub_values=solved_result.values
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/fastapi/dependencies/utils.py", line 595, in solve_generator
+    return await stack.enter_async_context(cm)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.13/3.13.2/Frameworks/Python.framework/Versions/3.13/lib/python3.13/contextlib.py", line 668, in enter_async_context
+    result = await _enter(cm)
+             ^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.13/3.13.2/Frameworks/Python.framework/Versions/3.13/lib/python3.13/contextlib.py", line 214, in __aenter__
+    return await anext(self.gen)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/fastapi/concurrency.py", line 35, in contextmanager_in_threadpool
+    raise e
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/fastapi/concurrency.py", line 27, in contextmanager_in_threadpool
+    yield await run_in_threadpool(cm.__enter__)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/starlette/concurrency.py", line 38, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/anyio/to_thread.py", line 56, in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        func, args, abandon_on_cancel=abandon_on_cancel, limiter=limiter
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/anyio/_backends/_asyncio.py", line 2485, in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/anyio/_backends/_asyncio.py", line 976, in run
+    result = context.run(func, *args)
+  File "/opt/homebrew/Cellar/python@3.13/3.13.2/Frameworks/Python.framework/Versions/3.13/lib/python3.13/contextlib.py", line 141, in __enter__
+    return next(self.gen)
+  File "/Users/filippodimarzio/AISystemFDM/database.py", line 177, in get_db
+    db.execute("SELECT 1")
+    ~~~~~~~~~~^^^^^^^^^^^^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/sqlalchemy/orm/session.py", line 2351, in execute
+    return self._execute_internal(
+           ~~~~~~~~~~~~~~~~~~~~~~^
+        statement,
+        ^^^^^^^^^^
+    ...<4 lines>...
+        _add_event=_add_event,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/sqlalchemy/orm/session.py", line 2147, in _execute_internal
+    statement = coercions.expect(roles.StatementRole, statement)
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/sqlalchemy/sql/coercions.py", line 395, in expect
+    resolved = impl._literal_coercion(
+        element, argname=argname, **kw
+    )
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/sqlalchemy/sql/coercions.py", line 621, in _literal_coercion
+    return self._text_coercion(element, argname, **kw)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/sqlalchemy/sql/coercions.py", line 614, in _text_coercion
+    return _no_text_coercion(element, argname)
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/sqlalchemy/sql/coercions.py", line 584, in _no_text_coercion
+    raise exc_cls(
+    ...<7 lines>...
+    ) from err
+sqlalchemy.exc.ArgumentError: Textual SQL expression 'SELECT 1' should be explicitly declared as text('SELECT 1')
+
+2025-10-25 20:03:58.915 | ERROR    | database:get_db:180 - Database connection error: Textual SQL expression 'SELECT 1' should be explicitly declared as text('SELECT 1')
+2025-10-25 20:03:58.924 | ERROR    | main:sqlalchemy_exception_handler:73 - Database error: Textual SQL expression 'SELECT 1' should be explicitly declared as text('SELECT 1')
+Traceback (most recent call last):
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/fastapi/routing.py", line 110, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/fastapi/routing.py", line 380, in app
+    solved_result = await solve_dependencies(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+    )
+    ^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/fastapi/dependencies/utils.py", line 669, in solve_dependencies
+    solved = await solve_generator(
+             ^^^^^^^^^^^^^^^^^^^^^^
+        call=call, stack=async_exit_stack, sub_values=solved_result.values
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/fastapi/dependencies/utils.py", line 595, in solve_generator
+    return await stack.enter_async_context(cm)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.13/3.13.2/Frameworks/Python.framework/Versions/3.13/lib/python3.13/contextlib.py", line 668, in enter_async_context
+    result = await _enter(cm)
+             ^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.13/3.13.2/Frameworks/Python.framework/Versions/3.13/lib/python3.13/contextlib.py", line 214, in __aenter__
+    return await anext(self.gen)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/fastapi/concurrency.py", line 35, in contextmanager_in_threadpool
+    raise e
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/fastapi/concurrency.py", line 27, in contextmanager_in_threadpool
+    yield await run_in_threadpool(cm.__enter__)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/starlette/concurrency.py", line 38, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/anyio/to_thread.py", line 56, in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        func, args, abandon_on_cancel=abandon_on_cancel, limiter=limiter
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/anyio/_backends/_asyncio.py", line 2485, in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/anyio/_backends/_asyncio.py", line 976, in run
+    result = context.run(func, *args)
+  File "/opt/homebrew/Cellar/python@3.13/3.13.2/Frameworks/Python.framework/Versions/3.13/lib/python3.13/contextlib.py", line 141, in __enter__
+    return next(self.gen)
+  File "/Users/filippodimarzio/AISystemFDM/database.py", line 177, in get_db
+    db.execute("SELECT 1")
+    ~~~~~~~~~~^^^^^^^^^^^^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/sqlalchemy/orm/session.py", line 2351, in execute
+    return self._execute_internal(
+           ~~~~~~~~~~~~~~~~~~~~~~^
+        statement,
+        ^^^^^^^^^^
+    ...<4 lines>...
+        _add_event=_add_event,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/sqlalchemy/orm/session.py", line 2147, in _execute_internal
+    statement = coercions.expect(roles.StatementRole, statement)
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/sqlalchemy/sql/coercions.py", line 395, in expect
+    resolved = impl._literal_coercion(
+        element, argname=argname, **kw
+    )
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/sqlalchemy/sql/coercions.py", line 621, in _literal_coercion
+    return self._text_coercion(element, argname, **kw)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/sqlalchemy/sql/coercions.py", line 614, in _text_coercion
+    return _no_text_coercion(element, argname)
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/sqlalchemy/sql/coercions.py", line 584, in _no_text_coercion
+    raise exc_cls(
+    ...<7 lines>...
+    ) from err
+sqlalchemy.exc.ArgumentError: Textual SQL expression 'SELECT 1' should be explicitly declared as text('SELECT 1')
+
+2025-10-25 20:03:58.947 | ERROR    | database:get_db:180 - Database connection error: Textual SQL expression 'SELECT 1' should be explicitly declared as text('SELECT 1')
+2025-10-25 20:03:58.951 | ERROR    | main:sqlalchemy_exception_handler:73 - Database error: Textual SQL expression 'SELECT 1' should be explicitly declared as text('SELECT 1')
+Traceback (most recent call last):
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/fastapi/routing.py", line 110, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/fastapi/routing.py", line 380, in app
+    solved_result = await solve_dependencies(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+    )
+    ^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/fastapi/dependencies/utils.py", line 669, in solve_dependencies
+    solved = await solve_generator(
+             ^^^^^^^^^^^^^^^^^^^^^^
+        call=call, stack=async_exit_stack, sub_values=solved_result.values
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/fastapi/dependencies/utils.py", line 595, in solve_generator
+    return await stack.enter_async_context(cm)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.13/3.13.2/Frameworks/Python.framework/Versions/3.13/lib/python3.13/contextlib.py", line 668, in enter_async_context
+    result = await _enter(cm)
+             ^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.13/3.13.2/Frameworks/Python.framework/Versions/3.13/lib/python3.13/contextlib.py", line 214, in __aenter__
+    return await anext(self.gen)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/fastapi/concurrency.py", line 35, in contextmanager_in_threadpool
+    raise e
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/fastapi/concurrency.py", line 27, in contextmanager_in_threadpool
+    yield await run_in_threadpool(cm.__enter__)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/starlette/concurrency.py", line 38, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/anyio/to_thread.py", line 56, in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        func, args, abandon_on_cancel=abandon_on_cancel, limiter=limiter
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/anyio/_backends/_asyncio.py", line 2485, in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/anyio/_backends/_asyncio.py", line 976, in run
+    result = context.run(func, *args)
+  File "/opt/homebrew/Cellar/python@3.13/3.13.2/Frameworks/Python.framework/Versions/3.13/lib/python3.13/contextlib.py", line 141, in __enter__
+    return next(self.gen)
+  File "/Users/filippodimarzio/AISystemFDM/database.py", line 177, in get_db
+    db.execute("SELECT 1")
+    ~~~~~~~~~~^^^^^^^^^^^^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/sqlalchemy/orm/session.py", line 2351, in execute
+    return self._execute_internal(
+           ~~~~~~~~~~~~~~~~~~~~~~^
+        statement,
+        ^^^^^^^^^^
+    ...<4 lines>...
+        _add_event=_add_event,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/sqlalchemy/orm/session.py", line 2147, in _execute_internal
+    statement = coercions.expect(roles.StatementRole, statement)
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/sqlalchemy/sql/coercions.py", line 395, in expect
+    resolved = impl._literal_coercion(
+        element, argname=argname, **kw
+    )
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/sqlalchemy/sql/coercions.py", line 621, in _literal_coercion
+    return self._text_coercion(element, argname, **kw)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/sqlalchemy/sql/coercions.py", line 614, in _text_coercion
+    return _no_text_coercion(element, argname)
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/sqlalchemy/sql/coercions.py", line 584, in _no_text_coercion
+    raise exc_cls(
+    ...<7 lines>...
+    ) from err
+sqlalchemy.exc.ArgumentError: Textual SQL expression 'SELECT 1' should be explicitly declared as text('SELECT 1')
+
+2025-10-25 20:11:16.363 | INFO     | database:init_database:113 - Database tables created successfully
+2025-10-25 20:11:28.914 | INFO     | database:init_database:113 - Database tables created successfully
+2025-10-25 20:11:31.281 | INFO     | database:init_database:113 - Database tables created successfully
+2025-10-25 20:12:02.120 | INFO     | database:init_database:113 - Database tables created successfully
+2025-10-26 18:48:09.133 | INFO     | database:init_database:113 - Database tables created successfully
+2025-10-26 18:48:34.618 | ERROR    | database:get_db:180 - Database connection error: Textual SQL expression 'SELECT 1' should be explicitly declared as text('SELECT 1')
+2025-10-26 18:48:35.049 | ERROR    | main:sqlalchemy_exception_handler:73 - Database error: Textual SQL expression 'SELECT 1' should be explicitly declared as text('SELECT 1')
+Traceback (most recent call last):
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/fastapi/routing.py", line 110, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/fastapi/routing.py", line 380, in app
+    solved_result = await solve_dependencies(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+    )
+    ^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/fastapi/dependencies/utils.py", line 669, in solve_dependencies
+    solved = await solve_generator(
+             ^^^^^^^^^^^^^^^^^^^^^^
+        call=call, stack=async_exit_stack, sub_values=solved_result.values
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/fastapi/dependencies/utils.py", line 595, in solve_generator
+    return await stack.enter_async_context(cm)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.13/3.13.2/Frameworks/Python.framework/Versions/3.13/lib/python3.13/contextlib.py", line 668, in enter_async_context
+    result = await _enter(cm)
+             ^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.13/3.13.2/Frameworks/Python.framework/Versions/3.13/lib/python3.13/contextlib.py", line 214, in __aenter__
+    return await anext(self.gen)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/fastapi/concurrency.py", line 35, in contextmanager_in_threadpool
+    raise e
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/fastapi/concurrency.py", line 27, in contextmanager_in_threadpool
+    yield await run_in_threadpool(cm.__enter__)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/starlette/concurrency.py", line 38, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/anyio/to_thread.py", line 56, in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        func, args, abandon_on_cancel=abandon_on_cancel, limiter=limiter
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/anyio/_backends/_asyncio.py", line 2485, in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/anyio/_backends/_asyncio.py", line 976, in run
+    result = context.run(func, *args)
+  File "/opt/homebrew/Cellar/python@3.13/3.13.2/Frameworks/Python.framework/Versions/3.13/lib/python3.13/contextlib.py", line 141, in __enter__
+    return next(self.gen)
+  File "/Users/filippodimarzio/AISystemFDM/database.py", line 177, in get_db
+    db.execute("SELECT 1")
+    ~~~~~~~~~~^^^^^^^^^^^^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/sqlalchemy/orm/session.py", line 2351, in execute
+    return self._execute_internal(
+           ~~~~~~~~~~~~~~~~~~~~~~^
+        statement,
+        ^^^^^^^^^^
+    ...<4 lines>...
+        _add_event=_add_event,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/sqlalchemy/orm/session.py", line 2147, in _execute_internal
+    statement = coercions.expect(roles.StatementRole, statement)
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/sqlalchemy/sql/coercions.py", line 395, in expect
+    resolved = impl._literal_coercion(
+        element, argname=argname, **kw
+    )
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/sqlalchemy/sql/coercions.py", line 621, in _literal_coercion
+    return self._text_coercion(element, argname, **kw)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/sqlalchemy/sql/coercions.py", line 614, in _text_coercion
+    return _no_text_coercion(element, argname)
+  File "/Users/filippodimarzio/AISystemFDM/venv/lib/python3.13/site-packages/sqlalchemy/sql/coercions.py", line 584, in _no_text_coercion
+    raise exc_cls(
+    ...<7 lines>...
+    ) from err
+sqlalchemy.exc.ArgumentError: Textual SQL expression 'SELECT 1' should be explicitly declared as text('SELECT 1')
+
+2025-10-26 19:35:34.792 | INFO     | database:init_database:113 - Database tables created successfully
+2025-10-26 19:36:53.235 | INFO     | database:init_database:113 - Database tables created successfully
+2025-10-26 19:38:13.447 | INFO     | database:init_database:114 - Database tables created successfully
+2025-10-26 19:39:24.900 | INFO     | database:init_database:114 - Database tables created successfully
+2025-10-26 19:49:16.675 | INFO     | database:init_database:114 - Database tables created successfully
+2025-10-30 21:31:45.787 | INFO     | database:init_database:114 - Database tables created successfully
+2025-12-16 14:31:09.781 | INFO     | database:init_database:122 - Database tables created successfully
+2025-12-18 17:59:55.456 | INFO     | database:init_database:122 - Database tables created successfully
+2025-12-18 18:00:15.465 | INFO     | database:init_database:122 - Database tables created successfully
+2025-12-18 18:00:37.945 | INFO     | database:init_database:122 - Database tables created successfully
+2025-12-18 18:18:03.072 | INFO     | database:init_database:122 - Database tables created successfully
+2025-12-18 18:18:09.067 | ERROR    | database:get_db:185 - Database connection error: No module named 'pandas'
+2025-12-18 18:18:09.073 | ERROR    | main:general_exception_handler:90 - Unhandled error: No module named 'pandas'
+Traceback (most recent call last):
+  File "/Users/filippodimarzio/AISystemFDM/.venv311/lib/python3.11/site-packages/starlette/middleware/errors.py", line 162, in __call__
+    await self.app(scope, receive, _send)
+  File "/Users/filippodimarzio/AISystemFDM/.venv311/lib/python3.11/site-packages/starlette/middleware/cors.py", line 83, in __call__
+    await self.app(scope, receive, send)
+  File "/Users/filippodimarzio/AISystemFDM/.venv311/lib/python3.11/site-packages/starlette/middleware/exceptions.py", line 79, in __call__
+    raise exc
+  File "/Users/filippodimarzio/AISystemFDM/.venv311/lib/python3.11/site-packages/starlette/middleware/exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+  File "/Users/filippodimarzio/AISystemFDM/.venv311/lib/python3.11/site-packages/fastapi/middleware/asyncexitstack.py", line 20, in __call__
+    raise e
+  File "/Users/filippodimarzio/AISystemFDM/.venv311/lib/python3.11/site-packages/fastapi/middleware/asyncexitstack.py", line 17, in __call__
+    await self.app(scope, receive, send)
+  File "/Users/filippodimarzio/AISystemFDM/.venv311/lib/python3.11/site-packages/starlette/routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+  File "/Users/filippodimarzio/AISystemFDM/.venv311/lib/python3.11/site-packages/starlette/routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "/Users/filippodimarzio/AISystemFDM/.venv311/lib/python3.11/site-packages/starlette/routing.py", line 66, in app
+    response = await func(request)
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/filippodimarzio/AISystemFDM/.venv311/lib/python3.11/site-packages/fastapi/routing.py", line 274, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/filippodimarzio/AISystemFDM/.venv311/lib/python3.11/site-packages/fastapi/routing.py", line 193, in run_endpoint_function
+    return await run_in_threadpool(dependant.call, **values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/filippodimarzio/AISystemFDM/.venv311/lib/python3.11/site-packages/starlette/concurrency.py", line 41, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func, *args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/filippodimarzio/AISystemFDM/.venv311/lib/python3.11/site-packages/anyio/to_thread.py", line 33, in run_sync
+    return await get_asynclib().run_sync_in_worker_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/filippodimarzio/AISystemFDM/.venv311/lib/python3.11/site-packages/anyio/_backends/_asyncio.py", line 877, in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+  File "/Users/filippodimarzio/AISystemFDM/.venv311/lib/python3.11/site-packages/anyio/_backends/_asyncio.py", line 807, in run
+    result = context.run(func, *args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/filippodimarzio/AISystemFDM/main.py", line 293, in retrain_model
+    from classifier import BusinessClassifier
+  File "/Users/filippodimarzio/AISystemFDM/classifier.py", line 7, in <module>
+    import pandas as pd
+ModuleNotFoundError: No module named 'pandas'
+
+2025-12-18 18:18:35.454 | ERROR    | database:get_db:185 - Database connection error: numpy.dtype size changed, may indicate binary incompatibility. Expected 96 from C header, got 88 from PyObject
+2025-12-18 18:18:35.459 | ERROR    | main:general_exception_handler:90 - Unhandled error: numpy.dtype size changed, may indicate binary incompatibility. Expected 96 from C header, got 88 from PyObject
+Traceback (most recent call last):
+  File "/Users/filippodimarzio/AISystemFDM/.venv311/lib/python3.11/site-packages/starlette/middleware/errors.py", line 162, in __call__
+    await self.app(scope, receive, _send)
+  File "/Users/filippodimarzio/AISystemFDM/.venv311/lib/python3.11/site-packages/starlette/middleware/cors.py", line 83, in __call__
+    await self.app(scope, receive, send)
+  File "/Users/filippodimarzio/AISystemFDM/.venv311/lib/python3.11/site-packages/starlette/middleware/exceptions.py", line 79, in __call__
+    raise exc
+  File "/Users/filippodimarzio/AISystemFDM/.venv311/lib/python3.11/site-packages/starlette/middleware/exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+  File "/Users/filippodimarzio/AISystemFDM/.venv311/lib/python3.11/site-packages/fastapi/middleware/asyncexitstack.py", line 20, in __call__
+    raise e
+  File "/Users/filippodimarzio/AISystemFDM/.venv311/lib/python3.11/site-packages/fastapi/middleware/asyncexitstack.py", line 17, in __call__
+    await self.app(scope, receive, send)
+  File "/Users/filippodimarzio/AISystemFDM/.venv311/lib/python3.11/site-packages/starlette/routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+  File "/Users/filippodimarzio/AISystemFDM/.venv311/lib/python3.11/site-packages/starlette/routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "/Users/filippodimarzio/AISystemFDM/.venv311/lib/python3.11/site-packages/starlette/routing.py", line 66, in app
+    response = await func(request)
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/filippodimarzio/AISystemFDM/.venv311/lib/python3.11/site-packages/fastapi/routing.py", line 274, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/filippodimarzio/AISystemFDM/.venv311/lib/python3.11/site-packages/fastapi/routing.py", line 193, in run_endpoint_function
+    return await run_in_threadpool(dependant.call, **values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/filippodimarzio/AISystemFDM/.venv311/lib/python3.11/site-packages/starlette/concurrency.py", line 41, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func, *args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/filippodimarzio/AISystemFDM/.venv311/lib/python3.11/site-packages/anyio/to_thread.py", line 33, in run_sync
+    return await get_asynclib().run_sync_in_worker_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/filippodimarzio/AISystemFDM/.venv311/lib/python3.11/site-packages/anyio/_backends/_asyncio.py", line 877, in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+  File "/Users/filippodimarzio/AISystemFDM/.venv311/lib/python3.11/site-packages/anyio/_backends/_asyncio.py", line 807, in run
+    result = context.run(func, *args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/filippodimarzio/AISystemFDM/main.py", line 293, in retrain_model
+    from classifier import BusinessClassifier
+  File "/Users/filippodimarzio/AISystemFDM/classifier.py", line 7, in <module>
+    import pandas as pd
+  File "/Users/filippodimarzio/AISystemFDM/.venv311/lib/python3.11/site-packages/pandas/__init__.py", line 34, in <module>
+    from pandas._config import (
+  File "/Users/filippodimarzio/AISystemFDM/.venv311/lib/python3.11/site-packages/pandas/_config/__init__.py", line 19, in <module>
+    from pandas._config import config
+  File "/Users/filippodimarzio/AISystemFDM/.venv311/lib/python3.11/site-packages/pandas/_config/config.py", line 68, in <module>
+    from pandas._typing import (
+  File "/Users/filippodimarzio/AISystemFDM/.venv311/lib/python3.11/site-packages/pandas/_typing.py", line 163, in <module>
+    np.random.Generator,
+    ^^^^^^^^^
+  File "/Users/filippodimarzio/AISystemFDM/.venv311/lib/python3.11/site-packages/numpy/__init__.py", line 721, in __getattr__
+  File "/Users/filippodimarzio/AISystemFDM/.venv311/lib/python3.11/site-packages/numpy/random/__init__.py", line 180, in <module>
+    from . import _pickle
+  File "/Users/filippodimarzio/AISystemFDM/.venv311/lib/python3.11/site-packages/numpy/random/_pickle.py", line 1, in <module>
+    from .mtrand import RandomState
+  File "numpy/random/mtrand.pyx", line 1, in init numpy.random.mtrand
+ValueError: numpy.dtype size changed, may indicate binary incompatibility. Expected 96 from C header, got 88 from PyObject
+
+2025-12-18 18:19:36.740 | ERROR    | database:get_db:185 - Database connection error: numpy.dtype size changed, may indicate binary incompatibility. Expected 96 from C header, got 88 from PyObject
+2025-12-18 18:19:36.743 | ERROR    | main:general_exception_handler:90 - Unhandled error: numpy.dtype size changed, may indicate binary incompatibility. Expected 96 from C header, got 88 from PyObject
+Traceback (most recent call last):
+  File "/Users/filippodimarzio/AISystemFDM/.venv311/lib/python3.11/site-packages/starlette/middleware/errors.py", line 162, in __call__
+    await self.app(scope, receive, _send)
+  File "/Users/filippodimarzio/AISystemFDM/.venv311/lib/python3.11/site-packages/starlette/middleware/cors.py", line 83, in __call__
+    await self.app(scope, receive, send)
+  File "/Users/filippodimarzio/AISystemFDM/.venv311/lib/python3.11/site-packages/starlette/middleware/exceptions.py", line 79, in __call__
+    raise exc
+  File "/Users/filippodimarzio/AISystemFDM/.venv311/lib/python3.11/site-packages/starlette/middleware/exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+  File "/Users/filippodimarzio/AISystemFDM/.venv311/lib/python3.11/site-packages/fastapi/middleware/asyncexitstack.py", line 20, in __call__
+    raise e
+  File "/Users/filippodimarzio/AISystemFDM/.venv311/lib/python3.11/site-packages/fastapi/middleware/asyncexitstack.py", line 17, in __call__
+    await self.app(scope, receive, send)
+  File "/Users/filippodimarzio/AISystemFDM/.venv311/lib/python3.11/site-packages/starlette/routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+  File "/Users/filippodimarzio/AISystemFDM/.venv311/lib/python3.11/site-packages/starlette/routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "/Users/filippodimarzio/AISystemFDM/.venv311/lib/python3.11/site-packages/starlette/routing.py", line 66, in app
+    response = await func(request)
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/filippodimarzio/AISystemFDM/.venv311/lib/python3.11/site-packages/fastapi/routing.py", line 274, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/filippodimarzio/AISystemFDM/.venv311/lib/python3.11/site-packages/fastapi/routing.py", line 193, in run_endpoint_function
+    return await run_in_threadpool(dependant.call, **values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/filippodimarzio/AISystemFDM/.venv311/lib/python3.11/site-packages/starlette/concurrency.py", line 41, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func, *args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/filippodimarzio/AISystemFDM/.venv311/lib/python3.11/site-packages/anyio/to_thread.py", line 33, in run_sync
+    return await get_asynclib().run_sync_in_worker_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/filippodimarzio/AISystemFDM/.venv311/lib/python3.11/site-packages/anyio/_backends/_asyncio.py", line 877, in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+  File "/Users/filippodimarzio/AISystemFDM/.venv311/lib/python3.11/site-packages/anyio/_backends/_asyncio.py", line 807, in run
+    result = context.run(func, *args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/filippodimarzio/AISystemFDM/main.py", line 293, in retrain_model
+    # Import classifier lazily and handle missing deps so frontend can still call this endpoint when
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/filippodimarzio/AISystemFDM/classifier.py", line 7, in <module>
+    import pandas as pd
+  File "/Users/filippodimarzio/AISystemFDM/.venv311/lib/python3.11/site-packages/pandas/__init__.py", line 34, in <module>
+    from pandas._config import (
+  File "/Users/filippodimarzio/AISystemFDM/.venv311/lib/python3.11/site-packages/pandas/_config/__init__.py", line 19, in <module>
+    from pandas._config import config
+  File "/Users/filippodimarzio/AISystemFDM/.venv311/lib/python3.11/site-packages/pandas/_config/config.py", line 68, in <module>
+    from pandas._typing import (
+  File "/Users/filippodimarzio/AISystemFDM/.venv311/lib/python3.11/site-packages/pandas/_typing.py", line 163, in <module>
+    np.random.Generator,
+    ^^^^^^^^^
+  File "/Users/filippodimarzio/AISystemFDM/.venv311/lib/python3.11/site-packages/numpy/__init__.py", line 721, in __getattr__
+  File "/Users/filippodimarzio/AISystemFDM/.venv311/lib/python3.11/site-packages/numpy/random/__init__.py", line 180, in <module>
+    from . import _pickle
+  File "/Users/filippodimarzio/AISystemFDM/.venv311/lib/python3.11/site-packages/numpy/random/_pickle.py", line 1, in <module>
+    from .mtrand import RandomState
+  File "numpy/random/mtrand.pyx", line 1, in init numpy.random.mtrand
+ValueError: numpy.dtype size changed, may indicate binary incompatibility. Expected 96 from C header, got 88 from PyObject
+
+2025-12-18 18:22:49.025 | INFO     | database:init_database:122 - Database tables created successfully
+2025-12-18 18:22:54.361 | ERROR    | database:get_db:185 - Database connection error: numpy.dtype size changed, may indicate binary incompatibility. Expected 96 from C header, got 88 from PyObject
+2025-12-18 18:22:54.365 | ERROR    | main:general_exception_handler:90 - Unhandled error: numpy.dtype size changed, may indicate binary incompatibility. Expected 96 from C header, got 88 from PyObject
+Traceback (most recent call last):
+  File "/Users/filippodimarzio/AISystemFDM/.venv311/lib/python3.11/site-packages/starlette/middleware/errors.py", line 162, in __call__
+    await self.app(scope, receive, _send)
+  File "/Users/filippodimarzio/AISystemFDM/.venv311/lib/python3.11/site-packages/starlette/middleware/cors.py", line 83, in __call__
+    await self.app(scope, receive, send)
+  File "/Users/filippodimarzio/AISystemFDM/.venv311/lib/python3.11/site-packages/starlette/middleware/exceptions.py", line 79, in __call__
+    raise exc
+  File "/Users/filippodimarzio/AISystemFDM/.venv311/lib/python3.11/site-packages/starlette/middleware/exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+  File "/Users/filippodimarzio/AISystemFDM/.venv311/lib/python3.11/site-packages/fastapi/middleware/asyncexitstack.py", line 20, in __call__
+    raise e
+  File "/Users/filippodimarzio/AISystemFDM/.venv311/lib/python3.11/site-packages/fastapi/middleware/asyncexitstack.py", line 17, in __call__
+    await self.app(scope, receive, send)
+  File "/Users/filippodimarzio/AISystemFDM/.venv311/lib/python3.11/site-packages/starlette/routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+  File "/Users/filippodimarzio/AISystemFDM/.venv311/lib/python3.11/site-packages/starlette/routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "/Users/filippodimarzio/AISystemFDM/.venv311/lib/python3.11/site-packages/starlette/routing.py", line 66, in app
+    response = await func(request)
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/filippodimarzio/AISystemFDM/.venv311/lib/python3.11/site-packages/fastapi/routing.py", line 274, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/filippodimarzio/AISystemFDM/.venv311/lib/python3.11/site-packages/fastapi/routing.py", line 193, in run_endpoint_function
+    return await run_in_threadpool(dependant.call, **values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/filippodimarzio/AISystemFDM/.venv311/lib/python3.11/site-packages/starlette/concurrency.py", line 41, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func, *args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/filippodimarzio/AISystemFDM/.venv311/lib/python3.11/site-packages/anyio/to_thread.py", line 33, in run_sync
+    return await get_asynclib().run_sync_in_worker_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/filippodimarzio/AISystemFDM/.venv311/lib/python3.11/site-packages/anyio/_backends/_asyncio.py", line 877, in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+  File "/Users/filippodimarzio/AISystemFDM/.venv311/lib/python3.11/site-packages/anyio/_backends/_asyncio.py", line 807, in run
+    result = context.run(func, *args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/filippodimarzio/AISystemFDM/main.py", line 293, in retrain_model
+    # Import classifier lazily and handle missing deps so frontend can still call this endpoint when
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/filippodimarzio/AISystemFDM/classifier.py", line 7, in <module>
+    import pandas as pd
+  File "/Users/filippodimarzio/AISystemFDM/.venv311/lib/python3.11/site-packages/pandas/__init__.py", line 34, in <module>
+    from pandas._config import (
+  File "/Users/filippodimarzio/AISystemFDM/.venv311/lib/python3.11/site-packages/pandas/_config/__init__.py", line 19, in <module>
+    from pandas._config import config
+  File "/Users/filippodimarzio/AISystemFDM/.venv311/lib/python3.11/site-packages/pandas/_config/config.py", line 68, in <module>
+    from pandas._typing import (
+  File "/Users/filippodimarzio/AISystemFDM/.venv311/lib/python3.11/site-packages/pandas/_typing.py", line 163, in <module>
+    np.random.Generator,
+    ^^^^^^^^^
+  File "/Users/filippodimarzio/AISystemFDM/.venv311/lib/python3.11/site-packages/numpy/__init__.py", line 721, in __getattr__
+  File "/Users/filippodimarzio/AISystemFDM/.venv311/lib/python3.11/site-packages/numpy/random/__init__.py", line 180, in <module>
+    from . import _pickle
+  File "/Users/filippodimarzio/AISystemFDM/.venv311/lib/python3.11/site-packages/numpy/random/_pickle.py", line 1, in <module>
+    from .mtrand import RandomState
+  File "numpy/random/mtrand.pyx", line 1, in init numpy.random.mtrand
+ValueError: numpy.dtype size changed, may indicate binary incompatibility. Expected 96 from C header, got 88 from PyObject
+
+2025-12-18 18:23:16.578 | INFO     | database:init_database:122 - Database tables created successfully
+2025-12-18 18:27:38.312 | INFO     | classifier:prepare_training_data:131 - Preparing training data from database
+2025-12-18 18:27:38.320 | WARNING  | classifier:prepare_training_data:139 - Not enough labeled data for training. Need at least 10 examples.
+2025-12-18 18:42:41.897 | INFO     | database:init_database:122 - Database tables created successfully
+2025-12-18 18:42:59.363 | INFO     | database:init_database:122 - Database tables created successfully
+2026-01-28 14:31:12.328 | INFO     | database:init_database:122 - Database tables created successfully
+2026-01-28 14:31:48.186 | INFO     | classifier:prepare_training_data:131 - Preparing training data from database
+2026-01-28 14:31:48.189 | INFO     | classifier:prepare_training_data:185 - Prepared training data: 10 samples, 31 features
+2026-01-28 14:31:48.189 | INFO     | classifier:train_model:203 - Training ML model
+2026-01-28 14:31:48.207 | INFO     | classifier:train_model:237 - logistic_regression - AUC: 1.000
+2026-01-28 14:31:48.287 | INFO     | classifier:train_model:237 - random_forest - AUC: 1.000
+2026-01-28 14:31:48.317 | INFO     | classifier:train_model:237 - lightgbm - AUC: 0.500
+2026-01-28 14:31:48.334 | INFO     | classifier:train_model:276 - Model training completed. Best model: logistic_regression
+2026-01-28 14:31:48.335 | INFO     | classifier:train_model:277 - AUC: 1.000, Accuracy: 1.000
+2026-01-28 14:31:48.336 | INFO     | classifier:save_model:413 - Model saved to business_classifier_model.pkl
+2026-01-28 14:31:48.336 | INFO     | classifier:classify_all_businesses:324 - Starting classification of all businesses
+2026-01-28 14:31:48.370 | INFO     | classifier:classify_all_businesses:370 - Successfully classified 92 businesses
+2026-01-28 14:31:48.370 | ERROR    | database:get_db:185 - Database connection error: Out of range float values are not JSON compliant
+2026-01-28 14:31:48.375 | ERROR    | main:general_exception_handler:90 - Unhandled error: Out of range float values are not JSON compliant
+Traceback (most recent call last):
+  File "/Users/filippodimarzio/AISystemFDM/.venv311/lib/python3.11/site-packages/starlette/middleware/errors.py", line 162, in __call__
+    await self.app(scope, receive, _send)
+  File "/Users/filippodimarzio/AISystemFDM/.venv311/lib/python3.11/site-packages/starlette/middleware/cors.py", line 83, in __call__
+    await self.app(scope, receive, send)
+  File "/Users/filippodimarzio/AISystemFDM/.venv311/lib/python3.11/site-packages/starlette/middleware/exceptions.py", line 79, in __call__
+    raise exc
+  File "/Users/filippodimarzio/AISystemFDM/.venv311/lib/python3.11/site-packages/starlette/middleware/exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+  File "/Users/filippodimarzio/AISystemFDM/.venv311/lib/python3.11/site-packages/fastapi/middleware/asyncexitstack.py", line 20, in __call__
+    raise e
+  File "/Users/filippodimarzio/AISystemFDM/.venv311/lib/python3.11/site-packages/fastapi/middleware/asyncexitstack.py", line 17, in __call__
+    await self.app(scope, receive, send)
+  File "/Users/filippodimarzio/AISystemFDM/.venv311/lib/python3.11/site-packages/starlette/routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+  File "/Users/filippodimarzio/AISystemFDM/.venv311/lib/python3.11/site-packages/starlette/routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "/Users/filippodimarzio/AISystemFDM/.venv311/lib/python3.11/site-packages/starlette/routing.py", line 66, in app
+    response = await func(request)
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/filippodimarzio/AISystemFDM/.venv311/lib/python3.11/site-packages/fastapi/routing.py", line 303, in app
+    response = actual_response_class(content, **response_args)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/filippodimarzio/AISystemFDM/.venv311/lib/python3.11/site-packages/starlette/responses.py", line 196, in __init__
+    super().__init__(content, status_code, headers, media_type, background)
+  File "/Users/filippodimarzio/AISystemFDM/.venv311/lib/python3.11/site-packages/starlette/responses.py", line 55, in __init__
+    self.body = self.render(content)
+                ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/filippodimarzio/AISystemFDM/.venv311/lib/python3.11/site-packages/starlette/responses.py", line 199, in render
+    return json.dumps(
+           ^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.11/3.11.11/Frameworks/Python.framework/Versions/3.11/lib/python3.11/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.11/3.11.11/Frameworks/Python.framework/Versions/3.11/lib/python3.11/json/encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.11/3.11.11/Frameworks/Python.framework/Versions/3.11/lib/python3.11/json/encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+ValueError: Out of range float values are not JSON compliant
+
+2026-01-28 14:32:02.623 | INFO     | database:init_database:122 - Database tables created successfully
+2026-01-28 14:32:26.531 | INFO     | classifier:prepare_training_data:131 - Preparing training data from database
+2026-01-28 14:32:26.535 | INFO     | classifier:prepare_training_data:185 - Prepared training data: 10 samples, 31 features
+2026-01-28 14:32:26.536 | INFO     | classifier:train_model:203 - Training ML model
+2026-01-28 14:32:26.546 | INFO     | classifier:train_model:237 - logistic_regression - AUC: 1.000
+2026-01-28 14:32:26.624 | INFO     | classifier:train_model:237 - random_forest - AUC: 1.000
+2026-01-28 14:32:26.658 | INFO     | classifier:train_model:237 - lightgbm - AUC: 0.500
+2026-01-28 14:32:26.675 | INFO     | classifier:train_model:276 - Model training completed. Best model: logistic_regression
+2026-01-28 14:32:26.675 | INFO     | classifier:train_model:277 - AUC: 1.000, Accuracy: 1.000
+2026-01-28 14:32:26.676 | INFO     | classifier:save_model:413 - Model saved to business_classifier_model.pkl
+2026-01-28 14:32:26.677 | INFO     | classifier:classify_all_businesses:324 - Starting classification of all businesses
+2026-01-28 14:32:26.682 | INFO     | classifier:classify_all_businesses:370 - Successfully classified 0 businesses
+2026-01-28 14:35:42.905 | INFO     | database:init_database:122 - Database tables created successfully
+2026-01-28 14:35:55.033 | ERROR    | database:get_db:185 - Database connection error: 
+2026-01-28 14:35:55.034 | WARNING  | main:http_exception_handler:66 - HTTP error 403: Demo seeding is disabled. Set DEMO_ALLOW_SEED=true or provide a valid X-Admin-Key header.
+2026-01-28 14:46:30.066 | INFO     | database:init_database:122 - Database tables created successfully
+2026-01-28 14:49:03.906 | INFO     | database:init_database:122 - Database tables created successfully
+2026-01-28 14:59:13.181 | INFO     | database:init_database:122 - Database tables created successfully
+2026-01-28 15:02:12.986 | INFO     | database:init_database:122 - Database tables created successfully

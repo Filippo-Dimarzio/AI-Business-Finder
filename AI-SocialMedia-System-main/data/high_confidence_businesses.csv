@@ -1,0 +1,29 @@
+id,name,address,phone,city,postcode,website_present,website_url,social_present,social_links,no_website_no_social,confidence_score,sources,last_checked_date,human_review,human_reviewer,human_review_date,notes,created_at,updated_at
+2,ORIGAMI by Arigato,"Lisboa, 1000-082",+351217950673,Lisboa,1000-082,False,,False,,True,0.7,OpenStreetMap,2025-10-30T21:16:51.908774,,,,,2025-10-26T19:49:14.230038,2025-10-30T21:16:51.910456
+25,A Laurentina,"71-A Avenida Conde Valbom, Lisboa",+351217960260,Lisboa,,False,,False,,True,0.7,OpenStreetMap,2025-10-30T21:16:51.908888,,,,,2025-10-26T19:49:15.115691,2025-10-30T21:16:51.910496
+26,Snack Bar Gazela,"161 Avenida Elias Garcia, Lisboa",+351217968741,Lisboa,,False,,False,,True,0.7,OpenStreetMap,2025-10-30T21:16:51.908893,,,,,2025-10-26T19:49:15.117672,2025-10-30T21:16:51.910498
+27,I Love Kebab,"84-A Avenida Conde Valbom, Lisboa, 1050-070",+351920076267,Lisboa,1050-070,False,,False,,True,0.7,OpenStreetMap,2025-10-30T21:16:51.908898,,,,,2025-10-26T19:49:15.118280,2025-10-30T21:16:51.910499
+30,Woknagasaki,"147 A Avenida Elias Garcia, Lisboa, 1050-099",+351 210 130 896;+351 965 205 052;+351 969 127 250,Lisboa,1050-099,False,,False,,True,0.7,OpenStreetMap,2025-10-30T21:16:51.908914,,,,,2025-10-26T19:49:15.119334,2025-10-30T21:16:51.910504
+32,Casa Nepalesa,"172 Avenida Elias Garcia, Lisboa, 1050-103",+351217979797,Lisboa,1050-103,False,,False,,True,0.7,OpenStreetMap,2025-10-30T21:16:51.908923,,,,,2025-10-26T19:49:15.120209,2025-10-30T21:16:51.910508
+33,O Padeiro,"137 Avenida Elias Garcia, Lisboa, 1050-053",+351910167673; +351962318962,Lisboa,1050-053,False,,False,,True,0.7,OpenStreetMap,2025-10-30T21:16:51.908928,,,,,2025-10-26T19:49:15.120598,2025-10-30T21:16:51.910509
+34,Salsa Rosa Bistro,"66 A Avenida Visconde de Valmor, Lisboa, 1050-242",+351218080229,Lisboa,1050-242,False,,False,,True,0.7,OpenStreetMap,2025-10-30T21:16:51.908933,,,,,2025-10-26T19:49:15.120923,2025-10-30T21:16:51.910511
+35,Tendinha Arganilense,"84-B Avenida Conde Valbom, Lisboa, 1050-070",+351217937024,Lisboa,1050-070,False,,False,,True,0.7,OpenStreetMap,2025-10-30T21:16:51.908967,,,,,2025-10-26T19:49:15.121231,2025-10-30T21:16:51.910513
+36,Miyagi Sushi,"111 Avenida Conde de Valbom, Lisboa, 1050-067",+351966614111,Lisboa,1050-067,False,,False,,True,0.7,OpenStreetMap,2025-10-30T21:16:51.908973,,,,,2025-10-26T19:49:15.121531,2025-10-30T21:16:51.910514
+37,Valbom,104-112 Avenida Conde Valbom,+351217970410,,,False,,False,,True,0.7,OpenStreetMap,2025-10-30T21:16:51.908978,,,,,2025-10-26T19:49:15.121821,2025-10-30T21:16:51.910516
+38,A Ladeira,"33-B Avenida Marquês de Tomar, 1050-053",+351217972520,,1050-053,False,,False,,True,0.7,OpenStreetMap,2025-10-30T21:16:51.908983,,,,,2025-10-26T19:49:15.122116,2025-10-30T21:16:51.910518
+44,Ararate,70;72;74 Avenida Conde Valbom,925 451 509,,,False,,False,,True,0.7,OpenStreetMap,2025-10-30T21:16:51.909012,,,,,2025-10-26T19:49:15.123880,2025-10-30T21:16:51.910528
+45,O Funil,82 Avenida Elias Garcia,+351210968912,,,False,,False,,True,0.7,OpenStreetMap,2025-10-30T21:16:51.909017,,,,,2025-10-26T19:49:15.124158,2025-10-30T21:16:51.910529
+47,Cinnamon Saldanha,93A Avenida Marquês de Tomar,+351933112817,,,False,,False,,True,0.7,OpenStreetMap,2025-10-30T21:16:51.909027,,,,,2025-10-26T19:49:15.124725,2025-10-30T21:16:51.910533
+50,Yaso Lamen & Gyoza Saldanha,84A Av. Elias Garcia,+351217931343,,,False,,False,,True,0.7,OpenStreetMap,2025-10-30T21:16:51.909041,,,,,2025-10-26T19:49:15.125572,2025-10-30T21:16:51.910538
+65,Taberna Londrina,"35-B Campo Grande, Lisboa, 1700-087",+315 210 912 193,Lisboa,1700-087,False,,False,,True,0.7,OpenStreetMap,2025-10-30T21:16:51.909113,,,,,2025-10-26T19:49:15.931162,2025-10-30T21:16:51.910562
+71,Sakura (Entrecampos),7 C Rua José Carlos dos Santos,+351 217 931 303;+351 968 385 717,,,False,,False,,True,0.7,OpenStreetMap,2025-10-30T21:16:51.909142,,,,,2025-10-26T19:49:15.934632,2025-10-30T21:16:51.910572
+83,The Golden Dragon,123 High Street,+442012345678,London,SW1A 1AA,False,,False,,True,0.7,Sample Data,2025-10-30T21:16:51.909201,,,,,2025-10-30T21:16:38.780088,2025-10-30T21:16:51.910592
+84,Mario's Pizza,45 Queen Street,020 2345 6789,London,EC1A 4HD,False,,False,,True,0.7,Sample Data,2025-10-30T21:16:51.909206,,,,,2025-10-30T21:16:38.785916,2025-10-30T21:16:51.910594
+85,Cafe Central,78 King's Road,+442034567890,London,SW3 4RD,False,,False,,True,0.7,Sample Data,2025-10-30T21:16:51.909211,,,,,2025-10-30T21:16:38.786665,2025-10-30T21:16:51.910595
+86,The Corner Bakery,12 Market Square,+442045678901,London,SE1 9RT,False,,False,,True,0.7,Sample Data,2025-10-30T21:16:51.909215,,,,,2025-10-30T21:16:38.787232,2025-10-30T21:16:51.910597
+87,Tony's Fish & Chips,56 Church Lane,020 5678 9012,London,NW1 6XE,False,,False,,True,0.7,Sample Data,2025-10-30T21:16:51.909220,,,,,2025-10-30T21:16:38.787707,2025-10-30T21:16:51.910599
+88,The Red Lion,89 High Road,020 6789 0123,London,E1 6AN,False,,False,,True,0.7,Sample Data,2025-10-30T21:16:51.909225,,,,,2025-10-30T21:16:38.788118,2025-10-30T21:16:51.910600
+89,Bella's Restaurant,34 Park Avenue,+442078901234,London,W1K 3QR,False,,False,,True,0.7,Sample Data,2025-10-30T21:16:51.909230,,,,,2025-10-30T21:16:38.788806,2025-10-30T21:16:51.910602
+90,The Coffee House,67 Station Road,+442089012345,London,SW1P 3EU,False,,False,,True,0.7,Sample Data,2025-10-30T21:16:51.909235,,,,,2025-10-30T21:16:38.789249,2025-10-30T21:16:51.910603
+91,Pete's Pizzeria,23 Green Street,020 9012 3456,London,N1 7AA,False,,False,,True,0.7,Sample Data,2025-10-30T21:16:51.909239,,,,,2025-10-30T21:16:38.789630,2025-10-30T21:16:51.910605
+92,The Garden Cafe,45 Mill Lane,+442001234567,London,SE5 8RT,False,,False,,True,0.7,Sample Data,2025-10-30T21:16:51.909244,,,,,2025-10-30T21:16:38.790281,2025-10-30T21:16:51.910607

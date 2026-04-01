@@ -1,0 +1,28 @@
+{
+  "export_date": "2025-10-30T21:16:51.927915",
+  "total_businesses": 92,
+  "review_status": {
+    "pending": 92,
+    "approved": 0,
+    "rejected": 0
+  },
+  "digital_presence": {
+    "has_website": 0,
+    "has_social_media": 0,
+    "no_website_no_social": 92
+  },
+  "confidence_distribution": {
+    "high_confidence": 0,
+    "medium_confidence": 92,
+    "low_confidence": 0
+  },
+  "source_distribution": {
+    "OpenStreetMap": 77,
+    "manual_entry": 5,
+    "Sample Data": 10
+  },
+  "recommendations": [
+    "Consider improving address data quality. 39 businesses lack address information.",
+    "High number of pending reviews (92). Consider prioritizing review process."
+  ]
+}

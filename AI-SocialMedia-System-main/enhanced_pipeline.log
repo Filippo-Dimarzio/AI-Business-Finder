@@ -1,0 +1,220 @@
+2025-10-30 21:18:47.180 | INFO     | __main__:main:124 - Initializing database
+2025-10-30 21:18:47.186 | INFO     | database:init_database:114 - Database tables created successfully
+2025-10-30 21:18:47.190 | INFO     | __main__:main:128 - Verifying Google Places API
+2025-10-30 21:18:47.523 | ERROR    | __main__:verify_google_places_api:39 - Google Places API key verification failed: REQUEST_DENIED
+2025-10-30 21:18:47.525 | WARNING  | __main__:main:130 - Google Places API verification failed. Continuing with limited functionality.
+2025-10-30 21:18:47.525 | INFO     | __main__:main:133 - Updating website information
+2025-10-30 21:18:47.526 | INFO     | website_checker:_init_google_maps:83 - Google Maps client initialized
+2025-10-30 21:18:47.535 | INFO     | __main__:main:137 - Updating social media information
+2025-10-30 21:18:47.538 | INFO     | __main__:main:141 - Training model and classifying businesses
+2025-10-30 21:18:47.538 | INFO     | __main__:train_and_classify:93 - Preparing training data
+2025-10-30 21:18:47.538 | INFO     | classifier:prepare_training_data:131 - Preparing training data from database
+2025-10-30 21:18:47.540 | ERROR    | __main__:main:147 - Enhanced pipeline failed: 'list' object has no attribute 'keys'
+2025-10-30 21:19:11.123 | INFO     | __main__:main:124 - Initializing database
+2025-10-30 21:19:11.128 | INFO     | database:init_database:114 - Database tables created successfully
+2025-10-30 21:19:11.133 | INFO     | __main__:main:128 - Verifying Google Places API
+2025-10-30 21:19:11.373 | ERROR    | __main__:verify_google_places_api:39 - Google Places API key verification failed: REQUEST_DENIED
+2025-10-30 21:19:11.374 | WARNING  | __main__:main:130 - Google Places API verification failed. Continuing with limited functionality.
+2025-10-30 21:19:11.374 | INFO     | __main__:main:133 - Updating website information
+2025-10-30 21:19:11.375 | INFO     | website_checker:_init_google_maps:83 - Google Maps client initialized
+2025-10-30 21:19:11.382 | INFO     | __main__:main:137 - Updating social media information
+2025-10-30 21:19:11.384 | INFO     | __main__:main:141 - Training model and classifying businesses
+2025-10-30 21:19:11.384 | INFO     | __main__:train_and_classify:93 - Preparing training data
+2025-10-30 21:19:11.384 | INFO     | classifier:prepare_training_data:131 - Preparing training data from database
+2025-10-30 21:19:11.387 | ERROR    | __main__:main:147 - Enhanced pipeline failed: 'list' object has no attribute 'keys'
+2025-10-30 21:19:34.851 | INFO     | __main__:main:124 - Initializing database
+2025-10-30 21:19:34.857 | INFO     | database:init_database:114 - Database tables created successfully
+2025-10-30 21:19:34.861 | INFO     | __main__:main:128 - Verifying Google Places API
+2025-10-30 21:19:35.008 | ERROR    | __main__:verify_google_places_api:39 - Google Places API key verification failed: REQUEST_DENIED
+2025-10-30 21:19:35.009 | WARNING  | __main__:main:130 - Google Places API verification failed. Continuing with limited functionality.
+2025-10-30 21:19:35.009 | INFO     | __main__:main:133 - Updating website information
+2025-10-30 21:19:35.009 | INFO     | website_checker:_init_google_maps:83 - Google Maps client initialized
+2025-10-30 21:19:35.014 | INFO     | __main__:main:137 - Updating social media information
+2025-10-30 21:19:35.015 | INFO     | __main__:main:141 - Training model and classifying businesses
+2025-10-30 21:19:35.015 | INFO     | __main__:train_and_classify:93 - Preparing training data
+2025-10-30 21:19:35.015 | INFO     | classifier:prepare_training_data:131 - Preparing training data from database
+2025-10-30 21:19:35.017 | INFO     | classifier:prepare_training_data:185 - Prepared training data: 15 samples, 31 features
+2025-10-30 21:19:35.017 | INFO     | __main__:train_and_classify:98 - Training ML model
+2025-10-30 21:19:35.017 | INFO     | classifier:train_model:203 - Training ML model
+2025-10-30 21:19:35.058 | INFO     | classifier:train_model:237 - logistic_regression - AUC: 1.000
+2025-10-30 21:19:35.132 | INFO     | classifier:train_model:237 - random_forest - AUC: 0.000
+2025-10-30 21:19:35.169 | INFO     | classifier:train_model:237 - lightgbm - AUC: 0.500
+2025-10-30 21:19:35.184 | INFO     | classifier:train_model:276 - Model training completed. Best model: logistic_regression
+2025-10-30 21:19:35.184 | INFO     | classifier:train_model:277 - AUC: 1.000, Accuracy: 0.667
+2025-10-30 21:19:35.184 | INFO     | __main__:train_and_classify:100 - Model training completed: {'model_name': 'logistic_regression', 'auc_score': 1.0, 'accuracy': np.float64(0.6666666666666666), 'cv_mean': np.float64(1.0), 'cv_std': np.float64(0.0), 'n_samples': 15, 'n_features': 31}
+2025-10-30 21:19:35.185 | INFO     | classifier:save_model:413 - Model saved to business_classifier_model.pkl
+2025-10-30 21:19:35.185 | INFO     | __main__:train_and_classify:106 - Classifying all businesses
+2025-10-30 21:19:35.185 | INFO     | classifier:classify_all_businesses:324 - Starting classification of all businesses
+2025-10-30 21:19:35.190 | INFO     | classifier:classify_all_businesses:370 - Successfully classified 0 businesses
+2025-10-30 21:19:35.190 | INFO     | __main__:train_and_classify:108 - Classification completed for 0 businesses
+2025-10-30 21:19:35.190 | INFO     | __main__:main:144 - Enhanced pipeline completed successfully
+2025-10-30 21:25:43.687 | INFO     | __main__:main:124 - Initializing database
+2025-10-30 21:25:43.693 | INFO     | database:init_database:114 - Database tables created successfully
+2025-10-30 21:25:43.697 | INFO     | __main__:main:128 - Verifying Google Places API
+2025-10-30 21:25:43.845 | ERROR    | __main__:verify_google_places_api:39 - Google Places API key verification failed: REQUEST_DENIED
+2025-10-30 21:25:43.846 | WARNING  | __main__:main:130 - Google Places API verification failed. Continuing with limited functionality.
+2025-10-30 21:25:43.846 | INFO     | __main__:main:133 - Updating website information
+2025-10-30 21:25:43.846 | INFO     | website_checker:_init_google_maps:83 - Google Maps client initialized
+2025-10-30 21:25:43.851 | INFO     | __main__:main:137 - Updating social media information
+2025-10-30 21:25:43.853 | INFO     | __main__:main:141 - Training model and classifying businesses
+2025-10-30 21:25:43.853 | INFO     | __main__:train_and_classify:93 - Preparing training data
+2025-10-30 21:25:43.853 | INFO     | classifier:prepare_training_data:131 - Preparing training data from database
+2025-10-30 21:25:43.855 | INFO     | classifier:prepare_training_data:185 - Prepared training data: 15 samples, 31 features
+2025-10-30 21:25:43.855 | INFO     | __main__:train_and_classify:98 - Training ML model
+2025-10-30 21:25:43.855 | INFO     | classifier:train_model:203 - Training ML model
+2025-10-30 21:25:43.888 | INFO     | classifier:train_model:237 - logistic_regression - AUC: 1.000
+2025-10-30 21:25:43.966 | INFO     | classifier:train_model:237 - random_forest - AUC: 0.000
+2025-10-30 21:25:44.000 | INFO     | classifier:train_model:237 - lightgbm - AUC: 0.500
+2025-10-30 21:25:44.014 | INFO     | classifier:train_model:276 - Model training completed. Best model: logistic_regression
+2025-10-30 21:25:44.015 | INFO     | classifier:train_model:277 - AUC: 1.000, Accuracy: 0.667
+2025-10-30 21:25:44.015 | INFO     | __main__:train_and_classify:100 - Model training completed: {'model_name': 'logistic_regression', 'auc_score': 1.0, 'accuracy': np.float64(0.6666666666666666), 'cv_mean': np.float64(1.0), 'cv_std': np.float64(0.0), 'n_samples': 15, 'n_features': 31}
+2025-10-30 21:25:44.016 | INFO     | classifier:save_model:413 - Model saved to business_classifier_model.pkl
+2025-10-30 21:25:44.016 | INFO     | __main__:train_and_classify:106 - Classifying all businesses
+2025-10-30 21:25:44.016 | INFO     | classifier:classify_all_businesses:324 - Starting classification of all businesses
+2025-10-30 21:25:44.020 | INFO     | classifier:classify_all_businesses:370 - Successfully classified 0 businesses
+2025-10-30 21:25:44.021 | INFO     | __main__:train_and_classify:108 - Classification completed for 0 businesses
+2025-10-30 21:25:44.021 | INFO     | __main__:main:144 - Enhanced pipeline completed successfully
+2025-10-30 21:28:32.459 | INFO     | __main__:main:116 - Initializing database
+2025-10-30 21:28:32.464 | INFO     | database:init_database:114 - Database tables created successfully
+2025-10-30 21:28:32.469 | INFO     | __main__:main:120 - Verifying Google Places API
+2025-10-30 21:28:33.118 | INFO     | __main__:verify_google_places_api:38 - Google Places API key verified successfully
+2025-10-30 21:28:33.119 | INFO     | __main__:main:125 - Updating website information
+2025-10-30 21:28:33.126 | INFO     | __main__:update_websites:53 - Updated website info for 0 businesses
+2025-10-30 21:28:33.126 | INFO     | __main__:main:129 - Updating social media information
+2025-10-30 21:28:33.128 | INFO     | __main__:main:133 - Training model and classifying businesses
+2025-10-30 21:28:33.128 | INFO     | __main__:train_and_classify:85 - Preparing training data
+2025-10-30 21:28:33.128 | INFO     | classifier:prepare_training_data:131 - Preparing training data from database
+2025-10-30 21:28:33.130 | INFO     | classifier:prepare_training_data:185 - Prepared training data: 15 samples, 31 features
+2025-10-30 21:28:33.130 | INFO     | __main__:train_and_classify:90 - Training ML model
+2025-10-30 21:28:33.130 | INFO     | classifier:train_model:203 - Training ML model
+2025-10-30 21:28:33.159 | INFO     | classifier:train_model:237 - logistic_regression - AUC: 1.000
+2025-10-30 21:28:33.233 | INFO     | classifier:train_model:237 - random_forest - AUC: 0.000
+2025-10-30 21:28:33.271 | INFO     | classifier:train_model:237 - lightgbm - AUC: 0.500
+2025-10-30 21:28:33.287 | INFO     | classifier:train_model:276 - Model training completed. Best model: logistic_regression
+2025-10-30 21:28:33.287 | INFO     | classifier:train_model:277 - AUC: 1.000, Accuracy: 0.667
+2025-10-30 21:28:33.287 | INFO     | __main__:train_and_classify:92 - Model training completed: {'model_name': 'logistic_regression', 'auc_score': 1.0, 'accuracy': np.float64(0.6666666666666666), 'cv_mean': np.float64(1.0), 'cv_std': np.float64(0.0), 'n_samples': 15, 'n_features': 31}
+2025-10-30 21:28:33.288 | INFO     | classifier:save_model:413 - Model saved to business_classifier_model.pkl
+2025-10-30 21:28:33.288 | INFO     | __main__:train_and_classify:98 - Classifying all businesses
+2025-10-30 21:28:33.288 | INFO     | classifier:classify_all_businesses:324 - Starting classification of all businesses
+2025-10-30 21:28:33.293 | INFO     | classifier:classify_all_businesses:370 - Successfully classified 0 businesses
+2025-10-30 21:28:33.293 | INFO     | __main__:train_and_classify:100 - Classification completed for 0 businesses
+2025-10-30 21:28:33.293 | INFO     | __main__:main:136 - Enhanced pipeline completed successfully
+2025-10-30 21:30:29.740 | INFO     | __main__:main:116 - Initializing database
+2025-10-30 21:30:29.755 | INFO     | database:init_database:114 - Database tables created successfully
+2025-10-30 21:30:29.762 | INFO     | __main__:main:120 - Verifying Google Places API
+2025-10-30 21:30:30.284 | INFO     | __main__:verify_google_places_api:38 - Google Places API key verified successfully
+2025-10-30 21:30:30.287 | INFO     | __main__:main:125 - Updating website information
+2025-10-30 21:30:30.294 | INFO     | __main__:update_websites:53 - Updated website info for 0 businesses
+2025-10-30 21:30:30.295 | INFO     | __main__:main:129 - Updating social media information
+2025-10-30 21:30:30.297 | INFO     | __main__:main:133 - Training model and classifying businesses
+2025-10-30 21:30:30.298 | INFO     | __main__:train_and_classify:85 - Preparing training data
+2025-10-30 21:30:30.298 | INFO     | classifier:prepare_training_data:131 - Preparing training data from database
+2025-10-30 21:30:30.299 | WARNING  | classifier:prepare_training_data:139 - Not enough labeled data for training. Need at least 10 examples.
+2025-10-30 21:30:30.299 | WARNING  | __main__:train_and_classify:102 - No training data available. Using rule-based classification
+2025-10-30 21:30:30.299 | ERROR    | __main__:main:139 - Enhanced pipeline failed: 'BusinessClassifier' object has no attribute 'run_rule_based_classification'
+2025-10-30 21:31:01.449 | INFO     | __main__:main:116 - Initializing database
+2025-10-30 21:31:01.464 | INFO     | database:init_database:114 - Database tables created successfully
+2025-10-30 21:31:01.472 | INFO     | __main__:main:120 - Verifying Google Places API
+2025-10-30 21:31:02.149 | INFO     | __main__:verify_google_places_api:38 - Google Places API key verified successfully
+2025-10-30 21:31:02.150 | INFO     | __main__:main:125 - Updating website information
+2025-10-30 21:31:02.155 | INFO     | __main__:update_websites:53 - Updated website info for 0 businesses
+2025-10-30 21:31:02.155 | INFO     | __main__:main:129 - Updating social media information
+2025-10-30 21:31:02.156 | INFO     | __main__:main:133 - Training model and classifying businesses
+2025-10-30 21:31:02.156 | INFO     | __main__:train_and_classify:85 - Preparing training data
+2025-10-30 21:31:02.157 | INFO     | classifier:prepare_training_data:131 - Preparing training data from database
+2025-10-30 21:31:02.158 | WARNING  | classifier:prepare_training_data:139 - Not enough labeled data for training. Need at least 10 examples.
+2025-10-30 21:31:02.158 | WARNING  | __main__:train_and_classify:102 - No training data available. Using rule-based classification
+2025-10-30 21:31:02.159 | INFO     | classifier:run_rule_based_classification:492 - Rule-based classification completed for 0 businesses
+2025-10-30 21:31:02.159 | INFO     | __main__:main:136 - Enhanced pipeline completed successfully
+2025-10-30 21:31:32.513 | INFO     | __main__:main:116 - Initializing database
+2025-10-30 21:31:32.518 | INFO     | database:init_database:114 - Database tables created successfully
+2025-10-30 21:31:32.522 | INFO     | __main__:main:120 - Verifying Google Places API
+2025-10-30 21:31:33.094 | INFO     | __main__:verify_google_places_api:38 - Google Places API key verified successfully
+2025-10-30 21:31:33.095 | INFO     | __main__:main:125 - Updating website information
+2025-10-30 21:31:33.104 | INFO     | __main__:update_websites:53 - Updated website info for 0 businesses
+2025-10-30 21:31:33.104 | INFO     | __main__:main:129 - Updating social media information
+2025-10-30 21:31:33.106 | INFO     | __main__:main:133 - Training model and classifying businesses
+2025-10-30 21:31:33.106 | INFO     | __main__:train_and_classify:85 - Preparing training data
+2025-10-30 21:31:33.106 | INFO     | classifier:prepare_training_data:131 - Preparing training data from database
+2025-10-30 21:31:33.109 | INFO     | classifier:prepare_training_data:185 - Prepared training data: 15 samples, 31 features
+2025-10-30 21:31:33.109 | INFO     | __main__:train_and_classify:90 - Training ML model
+2025-10-30 21:31:33.109 | INFO     | classifier:train_model:203 - Training ML model
+2025-10-30 21:31:33.125 | INFO     | classifier:train_model:237 - logistic_regression - AUC: 1.000
+2025-10-30 21:31:33.201 | INFO     | classifier:train_model:237 - random_forest - AUC: 0.000
+2025-10-30 21:31:33.235 | INFO     | classifier:train_model:237 - lightgbm - AUC: 0.500
+2025-10-30 21:31:33.250 | INFO     | classifier:train_model:276 - Model training completed. Best model: logistic_regression
+2025-10-30 21:31:33.250 | INFO     | classifier:train_model:277 - AUC: 1.000, Accuracy: 0.667
+2025-10-30 21:31:33.250 | INFO     | __main__:train_and_classify:92 - Model training completed: {'model_name': 'logistic_regression', 'auc_score': 1.0, 'accuracy': np.float64(0.6666666666666666), 'cv_mean': np.float64(1.0), 'cv_std': np.float64(0.0), 'n_samples': 15, 'n_features': 31}
+2025-10-30 21:31:33.251 | INFO     | classifier:save_model:413 - Model saved to business_classifier_model.pkl
+2025-10-30 21:31:33.251 | INFO     | __main__:train_and_classify:98 - Classifying all businesses
+2025-10-30 21:31:33.251 | INFO     | classifier:classify_all_businesses:324 - Starting classification of all businesses
+2025-10-30 21:31:33.255 | INFO     | classifier:classify_all_businesses:370 - Successfully classified 0 businesses
+2025-10-30 21:31:33.255 | INFO     | __main__:train_and_classify:100 - Classification completed for 0 businesses
+2025-10-30 21:31:33.256 | INFO     | __main__:main:136 - Enhanced pipeline completed successfully
+2025-10-30 21:44:32.487 | INFO     | __main__:main:116 - Initializing database
+2025-10-30 21:44:32.493 | INFO     | database:init_database:114 - Database tables created successfully
+2025-10-30 21:44:32.500 | INFO     | __main__:main:120 - Verifying Google Places API
+2025-10-30 21:44:32.924 | INFO     | __main__:verify_google_places_api:38 - Google Places API key verified successfully
+2025-10-30 21:44:32.925 | INFO     | __main__:main:125 - Updating website information
+2025-10-30 21:44:32.930 | INFO     | __main__:update_websites:53 - Updated website info for 0 businesses
+2025-10-30 21:44:32.930 | INFO     | __main__:main:129 - Updating social media information
+2025-10-30 21:44:32.932 | INFO     | __main__:main:133 - Training model and classifying businesses
+2025-10-30 21:44:32.932 | INFO     | __main__:train_and_classify:85 - Preparing training data
+2025-10-30 21:44:32.932 | INFO     | classifier:prepare_training_data:131 - Preparing training data from database
+2025-10-30 21:44:32.934 | INFO     | classifier:prepare_training_data:185 - Prepared training data: 15 samples, 31 features
+2025-10-30 21:44:32.934 | INFO     | __main__:train_and_classify:90 - Training ML model
+2025-10-30 21:44:32.934 | INFO     | classifier:train_model:203 - Training ML model
+2025-10-30 21:44:32.982 | INFO     | classifier:train_model:237 - logistic_regression - AUC: 1.000
+2025-10-30 21:44:33.063 | INFO     | classifier:train_model:237 - random_forest - AUC: 0.000
+2025-10-30 21:44:33.110 | INFO     | classifier:train_model:237 - lightgbm - AUC: 0.500
+2025-10-30 21:44:33.130 | INFO     | classifier:train_model:276 - Model training completed. Best model: logistic_regression
+2025-10-30 21:44:33.130 | INFO     | classifier:train_model:277 - AUC: 1.000, Accuracy: 0.667
+2025-10-30 21:44:33.130 | INFO     | __main__:train_and_classify:92 - Model training completed: {'model_name': 'logistic_regression', 'auc_score': 1.0, 'accuracy': np.float64(0.6666666666666666), 'cv_mean': np.float64(1.0), 'cv_std': np.float64(0.0), 'n_samples': 15, 'n_features': 31}
+2025-10-30 21:44:33.132 | INFO     | classifier:save_model:413 - Model saved to business_classifier_model.pkl
+2025-10-30 21:44:33.132 | INFO     | __main__:train_and_classify:98 - Classifying all businesses
+2025-10-30 21:44:33.132 | INFO     | classifier:classify_all_businesses:324 - Starting classification of all businesses
+2025-10-30 21:44:33.137 | INFO     | classifier:classify_all_businesses:370 - Successfully classified 0 businesses
+2025-10-30 21:44:33.137 | INFO     | __main__:train_and_classify:100 - Classification completed for 0 businesses
+2025-10-30 21:44:33.137 | INFO     | __main__:main:136 - Enhanced pipeline completed successfully
+2025-10-30 22:18:18.088 | INFO     | __main__:main:116 - Initializing database
+2025-10-30 22:18:18.098 | INFO     | database:init_database:122 - Database tables created successfully
+2025-10-30 22:18:18.104 | INFO     | __main__:main:120 - Verifying Google Places API
+2025-10-30 22:18:18.789 | INFO     | __main__:verify_google_places_api:38 - Google Places API key verified successfully
+2025-10-30 22:18:18.790 | INFO     | __main__:main:125 - Updating website information
+2025-10-30 22:18:18.798 | INFO     | __main__:update_websites:53 - Updated website info for 0 businesses
+2025-10-30 22:18:18.798 | INFO     | __main__:main:129 - Updating social media information
+2025-10-30 22:18:18.799 | INFO     | __main__:main:133 - Training model and classifying businesses
+2025-10-30 22:18:18.799 | INFO     | __main__:train_and_classify:85 - Preparing training data
+2025-10-30 22:18:18.799 | INFO     | classifier:prepare_training_data:131 - Preparing training data from database
+2025-10-30 22:18:18.800 | WARNING  | classifier:prepare_training_data:139 - Not enough labeled data for training. Need at least 10 examples.
+2025-10-30 22:18:18.800 | WARNING  | __main__:train_and_classify:102 - No training data available. Using rule-based classification
+2025-10-30 22:18:18.802 | INFO     | classifier:run_rule_based_classification:492 - Rule-based classification completed for 0 businesses
+2025-10-30 22:18:18.802 | INFO     | __main__:main:136 - Enhanced pipeline completed successfully
+2025-10-30 22:19:54.729 | INFO     | __main__:main:116 - Initializing database
+2025-10-30 22:19:54.731 | INFO     | database:init_database:122 - Database tables created successfully
+2025-10-30 22:19:54.736 | INFO     | __main__:main:120 - Verifying Google Places API
+2025-10-30 22:19:55.455 | INFO     | __main__:verify_google_places_api:38 - Google Places API key verified successfully
+2025-10-30 22:19:55.457 | INFO     | __main__:main:125 - Updating website information
+2025-10-30 22:19:55.468 | INFO     | __main__:update_websites:53 - Updated website info for 0 businesses
+2025-10-30 22:19:55.468 | INFO     | __main__:main:129 - Updating social media information
+2025-10-30 22:19:55.470 | INFO     | __main__:main:133 - Training model and classifying businesses
+2025-10-30 22:19:55.471 | INFO     | __main__:train_and_classify:85 - Preparing training data
+2025-10-30 22:19:55.471 | INFO     | classifier:prepare_training_data:131 - Preparing training data from database
+2025-10-30 22:19:55.472 | WARNING  | classifier:prepare_training_data:139 - Not enough labeled data for training. Need at least 10 examples.
+2025-10-30 22:19:55.473 | WARNING  | __main__:train_and_classify:102 - No training data available. Using rule-based classification
+2025-10-30 22:19:55.486 | INFO     | classifier:run_rule_based_classification:492 - Rule-based classification completed for 92 businesses
+2025-10-30 22:19:55.486 | INFO     | __main__:main:136 - Enhanced pipeline completed successfully
+2025-12-16 14:31:08.317 | INFO     | __main__:main:116 - Initializing database
+2025-12-16 14:31:08.319 | INFO     | database:init_database:122 - Database tables created successfully
+2025-12-16 14:31:08.324 | INFO     | __main__:main:120 - Verifying Google Places API
+2025-12-16 14:31:08.761 | INFO     | __main__:verify_google_places_api:38 - Google Places API key verified successfully
+2025-12-16 14:31:08.763 | INFO     | __main__:main:125 - Updating website information
+2025-12-16 14:31:08.771 | INFO     | __main__:update_websites:53 - Updated website info for 0 businesses
+2025-12-16 14:31:08.772 | INFO     | __main__:main:129 - Updating social media information
+2025-12-16 14:31:08.775 | INFO     | __main__:main:133 - Training model and classifying businesses
+2025-12-16 14:31:08.776 | INFO     | __main__:train_and_classify:85 - Preparing training data
+2025-12-16 14:31:08.776 | INFO     | classifier:prepare_training_data:131 - Preparing training data from database
+2025-12-16 14:31:08.778 | WARNING  | classifier:prepare_training_data:139 - Not enough labeled data for training. Need at least 10 examples.
+2025-12-16 14:31:08.778 | WARNING  | __main__:train_and_classify:102 - No training data available. Using rule-based classification
+2025-12-16 14:31:08.790 | INFO     | classifier:run_rule_based_classification:492 - Rule-based classification completed for 92 businesses
+2025-12-16 14:31:08.791 | INFO     | __main__:main:136 - Enhanced pipeline completed successfully
