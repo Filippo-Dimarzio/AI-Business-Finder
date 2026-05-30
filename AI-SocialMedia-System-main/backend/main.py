@@ -3,20 +3,24 @@ FastAPI backend for the Business Finder system.
 Provides REST API endpoints for the React frontend.
 """
 
-from fastapi import FastAPI, HTTPException, Depends, Request
-from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import JSONResponse
-from typing import List, Optional
-from pydantic import BaseModel, ValidationError
-from datetime import datetime
+import math
 import os
 import traceback
+from datetime import datetime
+from typing import List, Optional
+
+from fastapi import FastAPI, Header, HTTPException, Depends, Query, Request
+from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import JSONResponse
+from pydantic import BaseModel, ValidationError, field_validator
 from sqlalchemy.orm import Session
 from sqlalchemy.exc import SQLAlchemyError
 from sqlalchemy import text
 
 from database import get_db, Business, ProcessingLog, init_database
 from loguru import logger
+
+ALLOWED_REVIEW_STATUSES = {"approved", "rejected", "pending"}
 
 # Configure logging
 logger.add("api.log", rotation="500 MB", level="INFO")
@@ -52,6 +56,13 @@ class BusinessUpdate(BaseModel):
     human_reviewer: Optional[str] = None
     human_review_date: Optional[datetime] = None
     notes: Optional[str] = None
+
+    @field_validator("human_review")
+    @classmethod
+    def validate_human_review(cls, v: Optional[str]) -> Optional[str]:
+        if v is not None and v not in ALLOWED_REVIEW_STATUSES:
+            raise ValueError(f"human_review must be one of {sorted(ALLOWED_REVIEW_STATUSES)}")
+        return v
 
 # Initialize FastAPI app
 app = FastAPI(
@@ -122,35 +133,55 @@ def root():
 def health_check(db: Session = Depends(get_db)):
     """Health check endpoint for monitoring and load balancers."""
     try:
-        # Test database connection
         db.execute(text("SELECT 1"))
         return {"status": "healthy", "database": "connected"}
     except Exception as e:
         logger.error(f"Health check failed: {str(e)}")
-        return {"status": "degraded", "database": "error", "message": str(e)}
+        return JSONResponse(
+            status_code=503,
+            content={"status": "degraded", "database": "error", "message": str(e)},
+        )
+
+def _sanitize_float(value):
+    """Replace NaN/Inf floats with None so they are JSON-serializable."""
+    if isinstance(value, float) and (math.isnan(value) or math.isinf(value)):
+        return None
+    return value
+
+
+def _sanitize_business(business: Business) -> Business:
+    """Sanitize float fields on a Business ORM object before serialization."""
+    business.confidence_score = _sanitize_float(business.confidence_score)
+    business.google_rating = _sanitize_float(business.google_rating)
+    return business
+
 
 @app.get("/api/businesses", response_model=List[BusinessResponse])
 def get_businesses(
-    skip: int = 0,
-    limit: int = 100,
-    status: Optional[str] = None,
-    confidence_min: Optional[float] = None,
+    skip: int = Query(default=0, ge=0, description="Number of records to skip"),
+    limit: int = Query(default=100, ge=1, le=1000, description="Max records to return"),
+    status: Optional[str] = Query(default=None, description="Filter by review status"),
+    confidence_min: Optional[float] = Query(default=None, ge=0.0, le=1.0, description="Minimum confidence score"),
     db: Session = Depends(get_db)
 ):
     """Get list of businesses with optional filtering"""
+    if status is not None and status not in ALLOWED_REVIEW_STATUSES:
+        raise HTTPException(
+            status_code=422,
+            detail=f"Invalid status '{status}'. Must be one of: {sorted(ALLOWED_REVIEW_STATUSES)}",
+        )
+
     query = db.query(Business)
     
-    # Apply filters
     if status:
         query = query.filter(Business.human_review == status)
     
     if confidence_min is not None:
         query = query.filter(Business.confidence_score >= confidence_min)
     
-    # Apply pagination
     businesses = query.offset(skip).limit(limit).all()
     
-    return businesses
+    return [_sanitize_business(b) for b in businesses]
 
 @app.get("/api/businesses/{business_id}", response_model=BusinessResponse)
 def get_business(business_id: int, db: Session = Depends(get_db)):
@@ -160,7 +191,7 @@ def get_business(business_id: int, db: Session = Depends(get_db)):
     if not business:
         raise HTTPException(status_code=404, detail="Business not found")
     
-    return business
+    return _sanitize_business(business)
 
 @app.patch("/api/businesses/{business_id}", response_model=BusinessResponse)
 def update_business(
@@ -175,7 +206,7 @@ def update_business(
         raise HTTPException(status_code=404, detail="Business not found")
     
     # Update fields
-    update_data = business_update.dict(exclude_unset=True)
+    update_data = business_update.model_dump(exclude_unset=True)
     for field, value in update_data.items():
         setattr(business, field, value)
     
@@ -231,7 +262,8 @@ def approve_business(business_id: int, db: Session = Depends(get_db)):
     
     try:
         db.commit()
-        return {"message": "Business approved successfully"}
+        db.refresh(business)
+        return {"message": "Business approved successfully", "id": business.id, "human_review": business.human_review}
     except Exception as e:
         db.rollback()
         raise HTTPException(status_code=500, detail=f"Error approving business: {str(e)}")
@@ -250,21 +282,27 @@ def reject_business(business_id: int, db: Session = Depends(get_db)):
     
     try:
         db.commit()
-        return {"message": "Business rejected successfully"}
+        db.refresh(business)
+        return {"message": "Business rejected successfully", "id": business.id, "human_review": business.human_review}
     except Exception as e:
         db.rollback()
         raise HTTPException(status_code=500, detail=f"Error rejecting business: {str(e)}")
 
 @app.get("/api/export/csv")
 def export_csv(
-    status: Optional[str] = None,
-    confidence_min: Optional[float] = None,
+    status: Optional[str] = Query(default=None, description="Filter by review status"),
+    confidence_min: Optional[float] = Query(default=None, ge=0.0, le=1.0, description="Minimum confidence score"),
     db: Session = Depends(get_db)
 ):
     """Export businesses to CSV format"""
+    if status is not None and status not in ALLOWED_REVIEW_STATUSES:
+        raise HTTPException(
+            status_code=422,
+            detail=f"Invalid status '{status}'. Must be one of: {sorted(ALLOWED_REVIEW_STATUSES)}",
+        )
+
     query = db.query(Business)
     
-    # Apply filters
     if status:
         query = query.filter(Business.human_review == status)
     
@@ -288,7 +326,7 @@ def export_csv(
             'social_present': business.social_present or False,
             'social_links': business.social_links or {},
             'no_website_no_social': business.no_website_no_social or False,
-            'confidence_score': business.confidence_score or 0,
+            'confidence_score': _sanitize_float(business.confidence_score) or 0,
             'sources': business.sources or [],
             'last_checked_date': business.last_checked_date or '',
             'human_review': business.human_review or '',
@@ -301,49 +339,40 @@ def export_csv(
 @app.post('/api/retrain')
 def retrain_model(db: Session = Depends(get_db)):
     """Trigger ML retraining using labeled data and reclassify businesses."""
-    # Import classifier lazily and handle missing deps so frontend can still call this endpoint when
-    # the ML stack isn't fully installed in the environment.
     try:
         from classifier import BusinessClassifier
     except ModuleNotFoundError as e:
-        return {"status": "error", "message": f"Missing dependency: {str(e)}"}
+        raise HTTPException(status_code=503, detail=f"Missing dependency: {str(e)}")
     except Exception as e:
-        return {"status": "error", "message": f"Cannot import classifier: {str(e)}"}
+        raise HTTPException(status_code=500, detail=f"Cannot import classifier: {str(e)}")
 
     try:
         classifier = BusinessClassifier()
     except Exception as e:
-        return {"status": "error", "message": f"Failed to initialize classifier: {str(e)}"}
+        raise HTTPException(status_code=500, detail=f"Failed to initialize classifier: {str(e)}")
 
     X, y = classifier.prepare_training_data()
 
     if len(X) == 0:
-        # Not enough labeled data - return helpful message
         try:
             classifier.close()
         except Exception:
             pass
-        return {"status": "not_enough_data", "message": "Not enough labeled data to train (need at least 10)."}
+        raise HTTPException(
+            status_code=422,
+            detail="Not enough labeled data to train (need at least 10).",
+        )
 
     try:
         metrics = classifier.train_model(X, y)
-        # Clean metrics to ensure they're JSON-serializable (handle NaN/Inf)
-        import math
         cleaned_metrics = {}
         for k, v in (metrics or {}).items():
-            if isinstance(v, float):
-                if math.isnan(v) or math.isinf(v):
-                    cleaned_metrics[k] = None
-                else:
-                    cleaned_metrics[k] = v
-            else:
-                cleaned_metrics[k] = v
+            cleaned_metrics[k] = _sanitize_float(v) if isinstance(v, float) else v
         
-        # Save and classify
         classifier.save_model()
         processed = classifier.classify_all_businesses()
     except Exception as e:
-        return {"status": "error", "message": f"Training failed: {str(e)}"}
+        raise HTTPException(status_code=500, detail=f"Training failed: {str(e)}")
     finally:
         try:
             classifier.close()
@@ -354,19 +383,20 @@ def retrain_model(db: Session = Depends(get_db)):
 
 
 @app.post('/api/admin/seed_labels')
-def seed_demo_labels(count: int = 10, x_admin_key: str = None, db: Session = Depends(get_db)):
+def seed_demo_labels(
+    count: int = Query(default=10, ge=1, le=500, description="Number of businesses to label"),
+    x_admin_key: Optional[str] = Header(default=None, alias="X-Admin-Key"),
+    db: Session = Depends(get_db),
+):
     """Seed demo human labels for the dataset so retraining can be demonstrated.
 
     This endpoint only runs when the DEMO_ALLOW_SEED environment variable is set to
-    a truthy value ("1", "true", "yes"), OR when a valid ADMIN_API_KEY is provided.
-    
-    For production, provide the X-Admin-Key header with the ADMIN_API_KEY from env vars.
-    For development, set DEMO_ALLOW_SEED=true.
+    a truthy value ("1", "true", "yes"), OR when a valid ADMIN_API_KEY is provided
+    via the X-Admin-Key header.
     """
     allow_seed = os.getenv("DEMO_ALLOW_SEED", "false").lower()
     admin_key = os.getenv("ADMIN_API_KEY", "")
     
-    # Check if demo seeding is allowed or if correct admin key is provided
     demo_mode = allow_seed in ("1", "true", "yes")
     has_valid_key = admin_key and x_admin_key == admin_key
     
