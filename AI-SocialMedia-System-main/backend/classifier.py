@@ -415,19 +415,34 @@ class BusinessClassifier:
         except Exception as e:
             logger.error(f"Error saving model: {e}")
     
+    _TRUSTED_MODEL_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+
     def load_model(self, filepath: str = "business_classifier_model.pkl"):
         """
-        Load trained model from file
+        Load trained model from file.
+
+        Only loads from trusted paths within the project directory.
         
         Args:
             filepath: Path to load model from
         """
         try:
-            if not os.path.exists(filepath):
+            abs_path = os.path.abspath(filepath)
+            if not abs_path.startswith(self._TRUSTED_MODEL_DIR):
+                logger.error(f"Refusing to load model from untrusted path: {filepath}")
+                return
+
+            if not os.path.exists(abs_path):
                 logger.error(f"Model file not found: {filepath}")
                 return
             
-            model_data = joblib.load(filepath)
+            model_data = joblib.load(abs_path)
+
+            if not isinstance(model_data, dict) or not all(
+                k in model_data for k in ('model', 'scaler', 'feature_names')
+            ):
+                logger.error("Model file has unexpected structure")
+                return
             
             self.model = model_data['model']
             self.scaler = model_data['scaler']
