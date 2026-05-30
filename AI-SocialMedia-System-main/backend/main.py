@@ -105,12 +105,21 @@ async def general_exception_handler(request: Request, exc: Exception):
     )
 
 # CORS middleware for React frontend
+_cors_origins = [
+    origin.strip()
+    for origin in os.getenv("CORS_ORIGINS", "http://localhost:3000,http://127.0.0.1:3000").split(",")
+    if origin.strip()
+]
+if "*" in _cors_origins:
+    logger.warning("CORS_ORIGINS contains '*'; restricting to localhost defaults in production")
+    _cors_origins = ["http://localhost:3000", "http://127.0.0.1:3000"]
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=os.getenv("CORS_ORIGINS", "http://localhost:3000,http://127.0.0.1:3000").split(","),
+    allow_origins=_cors_origins,
     allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
+    allow_methods=["GET", "POST", "PATCH", "DELETE", "OPTIONS"],
+    allow_headers=["Content-Type", "Authorization", "X-Admin-Key"],
 )
 
 # Database initialization handler
@@ -139,7 +148,7 @@ def health_check(db: Session = Depends(get_db)):
         logger.error(f"Health check failed: {str(e)}")
         return JSONResponse(
             status_code=503,
-            content={"status": "degraded", "database": "error", "message": str(e)},
+            content={"status": "degraded", "database": "error"},
         )
 
 def _sanitize_float(value):
@@ -155,11 +164,12 @@ def _sanitize_business(business: Business) -> Business:
     business.google_rating = _sanitize_float(business.google_rating)
     return business
 
+MAX_PAGE_SIZE = 100
 
 @app.get("/api/businesses", response_model=List[BusinessResponse])
 def get_businesses(
     skip: int = Query(default=0, ge=0, description="Number of records to skip"),
-    limit: int = Query(default=100, ge=1, le=1000, description="Max records to return"),
+    limit: int = Query(default=100, ge=1, le=MAX_PAGE_SIZE, description="Max records to return"),
     status: Optional[str] = Query(default=None, description="Filter by review status"),
     confidence_min: Optional[float] = Query(default=None, ge=0.0, le=1.0, description="Minimum confidence score"),
     db: Session = Depends(get_db)
@@ -218,7 +228,7 @@ def update_business(
         return business
     except Exception as e:
         db.rollback()
-        raise HTTPException(status_code=500, detail=f"Error updating business: {str(e)}")
+        raise HTTPException(status_code=500, detail="Error updating business")
 
 @app.get("/api/businesses/{business_id}/logs")
 def get_business_logs(business_id: int, db: Session = Depends(get_db)):
@@ -266,7 +276,7 @@ def approve_business(business_id: int, db: Session = Depends(get_db)):
         return {"message": "Business approved successfully", "id": business.id, "human_review": business.human_review}
     except Exception as e:
         db.rollback()
-        raise HTTPException(status_code=500, detail=f"Error approving business: {str(e)}")
+        raise HTTPException(status_code=500, detail="Error approving business")
 
 @app.post("/api/businesses/{business_id}/reject")
 def reject_business(business_id: int, db: Session = Depends(get_db)):
@@ -286,7 +296,7 @@ def reject_business(business_id: int, db: Session = Depends(get_db)):
         return {"message": "Business rejected successfully", "id": business.id, "human_review": business.human_review}
     except Exception as e:
         db.rollback()
-        raise HTTPException(status_code=500, detail=f"Error rejecting business: {str(e)}")
+        raise HTTPException(status_code=500, detail="Error rejecting business")
 
 @app.get("/api/export/csv")
 def export_csv(
@@ -337,7 +347,7 @@ def export_csv(
 
 
 @app.post('/api/retrain')
-def retrain_model(db: Session = Depends(get_db)):
+def retrain_model(db: Session = Depends(get_db), _key: str = Depends(_verify_admin_key)):
     """Trigger ML retraining using labeled data and reclassify businesses."""
     try:
         from classifier import BusinessClassifier
@@ -382,26 +392,34 @@ def retrain_model(db: Session = Depends(get_db)):
     return {"status": "ok", "metrics": cleaned_metrics, "reclassified": processed}
 
 
+def _verify_admin_key(x_admin_key: Optional[str] = Header(None)) -> str:
+    """Dependency that verifies the admin API key from the X-Admin-Key header."""
+    admin_key = os.getenv("ADMIN_API_KEY", "")
+    if not admin_key or admin_key in ("change_me_to_a_secure_random_key", "change_me_to_secure_key", ""):
+        raise HTTPException(status_code=503, detail="Admin API key is not configured on the server.")
+    if not x_admin_key or x_admin_key != admin_key:
+        raise HTTPException(status_code=403, detail="Invalid or missing X-Admin-Key header.")
+    return x_admin_key
+
 @app.post('/api/admin/seed_labels')
 def seed_demo_labels(
     count: int = Query(default=10, ge=1, le=500, description="Number of businesses to label"),
-    x_admin_key: Optional[str] = Header(default=None, alias="X-Admin-Key"),
     db: Session = Depends(get_db),
+    _key: str = Depends(_verify_admin_key),
 ):
     """Seed demo human labels for the dataset so retraining can be demonstrated.
 
-    This endpoint only runs when the DEMO_ALLOW_SEED environment variable is set to
-    a truthy value ("1", "true", "yes"), OR when a valid ADMIN_API_KEY is provided
-    via the X-Admin-Key header.
+    This endpoint requires a valid X-Admin-Key header.
+    For development, set DEMO_ALLOW_SEED=true to bypass (non-production only).
     """
     allow_seed = os.getenv("DEMO_ALLOW_SEED", "false").lower()
     admin_key = os.getenv("ADMIN_API_KEY", "")
-    
+
     demo_mode = allow_seed in ("1", "true", "yes")
-    has_valid_key = admin_key and x_admin_key == admin_key
+    env = os.getenv("ENVIRONMENT", "production").lower()
     
-    if not (demo_mode or has_valid_key):
-        raise HTTPException(status_code=403, detail="Demo seeding is disabled. Set DEMO_ALLOW_SEED=true or provide a valid X-Admin-Key header.")
+    if demo_mode and env == "production":
+        raise HTTPException(status_code=403, detail="DEMO_ALLOW_SEED must not be enabled in production.")
 
     # Select unlabeled businesses
     to_seed = db.query(Business).filter(Business.human_review.is_(None)).limit(count).all()
@@ -428,10 +446,10 @@ def seed_demo_labels(
         db.commit()
     except Exception as e:
         db.rollback()
-        raise HTTPException(status_code=500, detail=f"Failed to seed labels: {str(e)}")
+        raise HTTPException(status_code=500, detail="Failed to seed labels")
 
     return {"seeded": sum(seeded.values()), "breakdown": seeded, "ids": seeded_ids}
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    uvicorn.run(app, host="127.0.0.1", port=8000)

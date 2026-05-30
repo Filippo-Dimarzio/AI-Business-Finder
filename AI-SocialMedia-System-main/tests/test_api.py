@@ -6,7 +6,10 @@ load_dotenv()
 
 def test_google_places_api():
     api_key = os.getenv("GOOGLE_PLACES_API_KEY")
-    print(f"Using API key: {api_key}")
+    if not api_key:
+        print("GOOGLE_PLACES_API_KEY not set")
+        return False
+    print(f"Using API key: {api_key[:4]}...{api_key[-4:]}")
     
     # Test with a Places Search request
     url = "https://places.googleapis.com/v1/places:searchText"

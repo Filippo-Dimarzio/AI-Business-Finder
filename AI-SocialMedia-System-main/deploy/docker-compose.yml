@@ -7,7 +7,7 @@ services:
     environment:
       POSTGRES_DB: business_finder
       POSTGRES_USER: ${DB_USER:-business_finder}
-      POSTGRES_PASSWORD: ${DB_PASSWORD:-change_me}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:?DB_PASSWORD must be set}
     ports:
       - "5432:5432"
     volumes:
@@ -25,10 +25,10 @@ services:
       postgres:
         condition: service_healthy
     environment:
-      DATABASE_URL: postgresql://${DB_USER:-business_finder}:${DB_PASSWORD:-change_me}@postgres:5432/business_finder
+      DATABASE_URL: postgresql://${DB_USER:-business_finder}:${DB_PASSWORD:?DB_PASSWORD must be set}@postgres:5432/business_finder
       DEBUG: ${DEBUG:-false}
       DEMO_ALLOW_SEED: ${DEMO_ALLOW_SEED:-false}
-      ADMIN_API_KEY: ${ADMIN_API_KEY:-change_me_to_secure_key}
+      ADMIN_API_KEY: ${ADMIN_API_KEY:?ADMIN_API_KEY must be set}
       CORS_ORIGINS: ${CORS_ORIGINS:-http://localhost:3000,http://127.0.0.1:3000}
       ENVIRONMENT: ${ENVIRONMENT:-production}
     ports:
